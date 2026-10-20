@@ -45,6 +45,24 @@
     document.querySelectorAll('.product-thumbnail').forEach((thumbnail) => thumbnail.classList.toggle('selected', thumbnail === button));
   }));
 
+  const districtSelect = document.querySelector('#district');
+  const areaSelect = document.querySelector('#area');
+  if (districtSelect && areaSelect) {
+    const areaOptions = [...areaSelect.querySelectorAll('option[data-district]')];
+    const updateAreas = () => {
+      const districtId = districtSelect.value;
+      const previouslySelected = areaSelect.value;
+      areaSelect.replaceChildren(new Option(districtId ? 'Choose an area' : 'Choose a district first', ''));
+      areaOptions.filter((option) => option.dataset.district === districtId).forEach((option) => {
+        areaSelect.append(option.cloneNode(true));
+      });
+      areaSelect.disabled = !districtId;
+      if ([...areaSelect.options].some((option) => option.value === previouslySelected)) areaSelect.value = previouslySelected;
+    };
+    districtSelect.addEventListener('change', updateAreas);
+    updateAreas();
+  }
+
   const orderSummary = document.querySelector('.order-summary');
   if (!orderSummary) return;
 

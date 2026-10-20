@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\District;
 use App\Models\ShippingOption;
 use Illuminate\View\View;
 
@@ -30,8 +31,11 @@ class ProductController extends Controller
             'variants' => fn ($query) => $query->where('is_active', true),
         ]);
         $shippingOptions = ShippingOption::query()->where('is_active', true)->orderBy('sort_order')->get();
+        $districts = District::query()->where('is_active', true)
+            ->with(['areas' => fn ($query) => $query->where('is_active', true)])
+            ->orderBy('sort_order')->orderBy('name')->get();
         $confirmation = session('order_confirmation');
 
-        return view('storefront.products.show', compact('product', 'shippingOptions', 'confirmation'));
+        return view('storefront.products.show', compact('product', 'shippingOptions', 'districts', 'confirmation'));
     }
 }

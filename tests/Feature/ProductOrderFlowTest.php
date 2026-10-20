@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Order;
+use App\Models\District;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use App\Models\ShippingOption;
@@ -18,6 +19,8 @@ class ProductOrderFlowTest extends TestCase
     {
         [$product] = $this->makeProduct();
         ShippingOption::create(['name' => 'Inside Dhaka', 'key' => 'inside-dhaka', 'charge' => 70, 'is_active' => true, 'sort_order' => 1]);
+        $district = District::create(['name' => 'Dhaka', 'slug' => 'dhaka', 'is_active' => true]);
+        $district->areas()->create(['name' => 'Mirpur', 'slug' => 'mirpur', 'is_active' => true]);
 
         $this->get(route('products.show', $product))
             ->assertOk()
@@ -37,8 +40,8 @@ class ProductOrderFlowTest extends TestCase
             'customer_name' => 'Samira Rahman',
             'phone' => '01712345678',
             'address' => '12 Lake Road',
-            'district' => 'Dhaka',
-            'area' => 'Dhanmondi',
+            'district_id' => $district->id,
+            'area_id' => $district->areas()->firstOrFail()->id,
             'customer_notes' => 'Call on arrival',
             'product_variant_id' => $variant->id,
             'quantity' => 2,
@@ -56,6 +59,8 @@ class ProductOrderFlowTest extends TestCase
         $this->assertSame('70.00', $order->delivery_charge);
         $this->assertSame('2270.00', $order->total);
         $this->assertSame('cod', $order->payment_method);
+        $this->assertSame('Dhaka', $order->district);
+        $this->assertSame('Mirpur', $order->area);
         $this->assertSame(2, $order->items->sole()->quantity);
         $this->assertSame(['name' => 'Size', 'value' => 'L'], $order->items->sole()->variant_snapshot);
         $this->assertSame(18, $variant->fresh()->stock_quantity);
@@ -68,12 +73,15 @@ class ProductOrderFlowTest extends TestCase
     {
         [$product, $variant] = $this->makeProduct(stock: 1);
         $shipping = ShippingOption::create(['name' => 'Inside Dhaka', 'key' => 'inside-dhaka', 'charge' => 70, 'is_active' => true, 'sort_order' => 1]);
+        $district = District::create(['name' => 'Dhaka', 'slug' => 'dhaka', 'is_active' => true]);
+        $area = $district->areas()->create(['name' => 'Mirpur', 'slug' => 'mirpur', 'is_active' => true]);
 
         $this->from(route('products.show', $product))->post(route('products.orders.store', $product), [
             'customer_name' => 'Samira Rahman',
             'phone' => '01712345678',
             'address' => '12 Lake Road',
-            'district' => 'Dhaka',
+            'district_id' => $district->id,
+            'area_id' => $area->id,
             'product_variant_id' => $variant->id,
             'quantity' => 2,
             'shipping_option_id' => $shipping->id,

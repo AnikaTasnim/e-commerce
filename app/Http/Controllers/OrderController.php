@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Area;
+use App\Models\District;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use App\Models\ShippingOption;
@@ -20,8 +22,8 @@ class OrderController extends Controller
             'customer_name' => ['required', 'string', 'max:120'],
             'phone' => ['required', 'string', 'max:24', 'regex:/^(?:\+?88)?01[3-9]\d{8}$/'],
             'address' => ['required', 'string', 'max:1000'],
-            'district' => ['required', 'string', 'max:100'],
-            'area' => ['nullable', 'string', 'max:120'],
+            'district_id' => ['required', 'integer', 'exists:districts,id'],
+            'area_id' => ['required', 'integer', 'exists:areas,id'],
             'customer_notes' => ['nullable', 'string', 'max:1000'],
             'product_variant_id' => ['required', 'integer', 'exists:product_variants,id'],
             'quantity' => ['required', 'integer', 'min:1', 'max:20'],
@@ -61,6 +63,13 @@ class OrderController extends Controller
                 throw ValidationException::withMessages(['shipping_option_id' => 'Choose an available delivery option.']);
             }
 
+            $district = District::query()->whereKey($data['district_id'])->where('is_active', true)->first();
+            $area = Area::query()->whereKey($data['area_id'])
+                ->where('district_id', $data['district_id'])->where('is_active', true)->first();
+            if (! $district || ! $area) {
+                throw ValidationException::withMessages(['area_id' => 'Choose an available area in the selected district.']);
+            }
+
             $regularUnitPrice = (float) $lockedProduct->regular_price + (float) $variant->price_adjustment;
             $unitPrice = max(0, $lockedProduct->currentPrice() + (float) $variant->price_adjustment);
             $subtotal = round($unitPrice * $quantity, 2);
@@ -72,8 +81,8 @@ class OrderController extends Controller
                 'customer_name' => $data['customer_name'],
                 'phone' => $data['phone'],
                 'address' => $data['address'],
-                'district' => $data['district'],
-                'area' => $data['area'] ?? null,
+                'district' => $district->name,
+                'area' => $area->name,
                 'customer_notes' => $data['customer_notes'] ?? null,
                 'subtotal' => $subtotal,
                 'discount_total' => $discount,
