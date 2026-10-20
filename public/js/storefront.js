@@ -1,15 +1,6 @@
 (() => {
-  const money = (amount) => `৳${Math.round(Number(amount)).toLocaleString('en-BD')}`;
-
-  const menuButton = document.querySelector('.menu-toggle');
-  menuButton?.addEventListener('click', () => {
-    const open = document.querySelector('.main-nav').classList.toggle('open');
-    menuButton.setAttribute('aria-expanded', String(open));
-  });
-  document.querySelectorAll('.main-nav a').forEach((link) => link.addEventListener('click', () => {
-    document.querySelector('.main-nav')?.classList.remove('open');
-    menuButton?.setAttribute('aria-expanded', 'false');
-  }));
+  const number = (amount) => Math.round(Number(amount)).toLocaleString('bn-BD');
+  const money = (amount) => `${number(amount)} টাকা`;
 
   const search = document.querySelector('#product-search');
   if (search) {
@@ -18,7 +9,8 @@
       const term = search.value.trim().toLowerCase();
       let visible = 0;
       document.querySelectorAll('.product-card').forEach((card) => {
-        const matches = (category === 'ALL' || card.dataset.category === category) && card.dataset.name.includes(term);
+        const matches = (category === 'ALL' || card.dataset.category === category)
+          && card.dataset.name.includes(term);
         card.hidden = !matches;
         if (matches) visible++;
       });
@@ -31,9 +23,6 @@
       applyFilters();
     }));
     search.addEventListener('input', applyFilters);
-    document.querySelectorAll('[data-filter-link]').forEach((link) => link.addEventListener('click', () => {
-      document.querySelector(`.filter-chip[data-category="${link.dataset.filterLink}"]`)?.click();
-    }));
   }
 
   const mainImage = document.querySelector('#main-product-image');
@@ -51,13 +40,13 @@
     const areaOptions = [...areaSelect.querySelectorAll('option[data-district]')];
     const updateAreas = () => {
       const districtId = districtSelect.value;
-      const previouslySelected = areaSelect.value;
-      areaSelect.replaceChildren(new Option(districtId ? 'Choose an area' : 'Choose a district first', ''));
+      const previousArea = areaSelect.value;
+      areaSelect.replaceChildren(new Option(districtId ? 'এলাকা বেছে নিন' : 'আগে জেলা বেছে নিন', ''));
       areaOptions.filter((option) => option.dataset.district === districtId).forEach((option) => {
         areaSelect.append(option.cloneNode(true));
       });
       areaSelect.disabled = !districtId;
-      if ([...areaSelect.options].some((option) => option.value === previouslySelected)) areaSelect.value = previouslySelected;
+      if ([...areaSelect.options].some((option) => option.value === previousArea)) areaSelect.value = previousArea;
     };
     districtSelect.addEventListener('change', updateAreas);
     updateAreas();
@@ -103,8 +92,8 @@
       if (element) element.textContent = value;
     };
     setText('#product-current-price', money(unit));
-    setText('#summary-variant', selected?.value ? selected.textContent.trim().split(' — ')[0] : 'Choose a size or option');
-    setText('#summary-quantity', `Quantity: ${count}`);
+    setText('#summary-variant', selected?.value ? selected.textContent.trim() : 'সাইজ বা অপশন বেছে নিন');
+    setText('#summary-quantity', `পরিমাণ: ${number(count)}`);
     setText('#summary-subtotal', money(subtotal));
     setText('#summary-subtotal-line', money(subtotal));
     setText('#summary-shipping', money(shipping));
@@ -112,21 +101,21 @@
     setText('#place-order-total', money(total));
 
     const shippingName = shippingInput?.closest('.shipping-option')?.querySelector('.shipping-choice strong')?.textContent;
-    setText('#summary-shipping-name', shippingName || 'Delivery');
+    setText('#summary-shipping-name', shippingName || 'ডেলিভারি');
     const discountLine = document.querySelector('#summary-discount')?.closest('.summary-row');
     if (discountLine) {
       discountLine.hidden = savings <= 0;
-      setText('#summary-discount', `−${money(savings)}`);
+      setText('#summary-discount', `- ${money(savings)}`);
     }
     const badge = document.querySelector('#detail-discount');
     if (badge) {
       const percent = regular > 0 ? Math.round(((regular - unit) / regular) * 100) : 0;
-      badge.textContent = `−${percent}%`;
+      badge.textContent = `${number(percent)}% ছাড়`;
       badge.hidden = percent <= 0;
     }
 
     const stockHint = document.querySelector('#stock-hint');
-    if (stockHint) stockHint.textContent = selected?.value ? `${available} available` : 'Select an available option to see stock.';
+    if (stockHint) stockHint.textContent = selected?.value ? `${number(available)}টি মজুত আছে` : 'স্টক দেখতে একটি অপশন বেছে নিন।';
     const button = document.querySelector('.place-order-button');
     if (button) button.disabled = !selected?.value || available < 1;
   }

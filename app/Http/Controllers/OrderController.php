@@ -30,13 +30,42 @@ class OrderController extends Controller
             'shipping_option_id' => ['required', 'integer', 'exists:shipping_options,id'],
             'payment_method' => ['required', 'in:cod'],
         ], [
-            'phone.regex' => 'Enter a valid Bangladeshi mobile number.',
+            'customer_name.required' => 'আপনার নাম লিখুন।',
+            'customer_name.string' => 'নামটি সঠিকভাবে লিখুন।',
+            'customer_name.max' => 'নামের ঘরটি ১২০ অক্ষরের মধ্যে রাখুন।',
+            'phone.required' => 'মোবাইল নম্বর লিখুন।',
+            'phone.string' => 'মোবাইল নম্বরটি সঠিকভাবে লিখুন।',
+            'phone.max' => 'মোবাইল নম্বরটি সঠিকভাবে লিখুন।',
+            'phone.regex' => 'সঠিক বাংলাদেশি মোবাইল নম্বর লিখুন।',
+            'address.required' => 'সম্পূর্ণ ঠিকানা লিখুন।',
+            'address.string' => 'সম্পূর্ণ ঠিকানা লিখুন।',
+            'address.max' => 'ঠিকানাটি ১,০০০ অক্ষরের মধ্যে রাখুন।',
+            'district_id.required' => 'জেলা বেছে নিন।',
+            'district_id.integer' => 'তালিকা থেকে একটি বৈধ জেলা বেছে নিন।',
+            'district_id.exists' => 'তালিকা থেকে একটি বৈধ জেলা বেছে নিন।',
+            'area_id.required' => 'এলাকা বেছে নিন।',
+            'area_id.integer' => 'তালিকা থেকে একটি বৈধ এলাকা বেছে নিন।',
+            'area_id.exists' => 'তালিকা থেকে একটি বৈধ এলাকা বেছে নিন।',
+            'product_variant_id.required' => 'পণ্যের সাইজ বা অপশন বেছে নিন।',
+            'product_variant_id.integer' => 'তালিকা থেকে একটি বৈধ অপশন বেছে নিন।',
+            'product_variant_id.exists' => 'তালিকা থেকে একটি বৈধ অপশন বেছে নিন।',
+            'quantity.required' => 'পণ্যের পরিমাণ লিখুন।',
+            'quantity.integer' => 'পণ্যের পরিমাণ সংখ্যা হতে হবে।',
+            'quantity.min' => 'অন্তত ১টি পণ্য অর্ডার করতে হবে।',
+            'quantity.max' => 'একবারে সর্বোচ্চ ২০টি পণ্য অর্ডার করা যাবে।',
+            'shipping_option_id.required' => 'ডেলিভারি এলাকা বেছে নিন।',
+            'shipping_option_id.integer' => 'তালিকা থেকে একটি বৈধ ডেলিভারি অপশন বেছে নিন।',
+            'shipping_option_id.exists' => 'তালিকা থেকে একটি বৈধ ডেলিভারি অপশন বেছে নিন।',
+            'payment_method.required' => 'পেমেন্ট পদ্ধতি বেছে নিন।',
+            'payment_method.in' => 'এই মুহূর্তে ক্যাশ অন ডেলিভারি সুবিধা রয়েছে।',
+            'customer_notes.string' => 'অর্ডারের নোটটি সঠিকভাবে লিখুন।',
+            'customer_notes.max' => 'অর্ডারের নোটটি ১,০০০ অক্ষরের মধ্যে রাখুন।',
         ]);
 
         $order = DB::transaction(function () use ($data, $product) {
             $lockedProduct = Product::query()->whereKey($product->id)->lockForUpdate()->firstOrFail();
             if ($lockedProduct->status !== 'active') {
-                throw ValidationException::withMessages(['product' => 'This product is no longer available.']);
+                throw ValidationException::withMessages(['product' => 'এই পণ্যটি আর পাওয়া যাচ্ছে না।']);
             }
 
             $variant = ProductVariant::query()
@@ -46,12 +75,12 @@ class OrderController extends Controller
                 ->lockForUpdate()
                 ->first();
             if (! $variant) {
-                throw ValidationException::withMessages(['product_variant_id' => 'Choose an available option for this product.']);
+                throw ValidationException::withMessages(['product_variant_id' => 'পণ্যটির একটি উপলভ্য সাইজ বা অপশন বেছে নিন।']);
             }
 
             $quantity = (int) $data['quantity'];
             if ($variant->stock_quantity < $quantity || $lockedProduct->stock_quantity < $quantity) {
-                throw ValidationException::withMessages(['quantity' => 'The selected quantity is no longer available.']);
+                throw ValidationException::withMessages(['quantity' => 'আপনার বেছে নেওয়া পরিমাণটি আর মজুত নেই।']);
             }
 
             $shipping = ShippingOption::query()
@@ -60,14 +89,14 @@ class OrderController extends Controller
                 ->lockForUpdate()
                 ->first();
             if (! $shipping) {
-                throw ValidationException::withMessages(['shipping_option_id' => 'Choose an available delivery option.']);
+                throw ValidationException::withMessages(['shipping_option_id' => 'একটি উপলভ্য ডেলিভারি অপশন বেছে নিন।']);
             }
 
             $district = District::query()->whereKey($data['district_id'])->where('is_active', true)->first();
             $area = Area::query()->whereKey($data['area_id'])
                 ->where('district_id', $data['district_id'])->where('is_active', true)->first();
             if (! $district || ! $area) {
-                throw ValidationException::withMessages(['area_id' => 'Choose an available area in the selected district.']);
+                throw ValidationException::withMessages(['area_id' => 'বেছে নেওয়া জেলার একটি উপলভ্য এলাকা নির্বাচন করুন।']);
             }
 
             $regularUnitPrice = (float) $lockedProduct->regular_price + (float) $variant->price_adjustment;

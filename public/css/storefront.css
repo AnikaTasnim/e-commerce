@@ -155,3 +155,5 @@ body{font-size:15px;color:#102b37}
 .promise-strip{background:#fff4eb;border-color:#f3d3bd}
 .newsletter{background:#fff0e4}
 em,i,.story-doodle,.hero-sticker strong{font-style:normal}
+
+:root{--serif:"Nirmala UI","Noto Sans Bengali",Vrinda,Calibri,Arial,sans-serif;--sans:"Nirmala UI","Noto Sans Bengali",Vrinda,Calibri,Arial,sans-serif}
