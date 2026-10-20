@@ -25,6 +25,7 @@ class ProductController extends Controller
             ->when($request->filled('search'), function ($query) use ($request) {
                 $term = trim($request->string('search')->toString());
                 $query->where(fn ($query) => $query->where('name', 'like', "%{$term}%")
+                    ->orWhere('bangla_name', 'like', "%{$term}%")
                     ->orWhere('sku', 'like', "%{$term}%"));
             })
             ->when($request->filled('status'), fn ($query) => $query->where('status', (string) $request->input('status')))
@@ -111,6 +112,7 @@ class ProductController extends Controller
     {
         $data = $request->validate([
             'name' => ['required', 'string', 'max:180'],
+            'bangla_name' => ['nullable', 'string', 'max:180'],
             'slug' => ['nullable', 'string', 'max:190', Rule::unique('products', 'slug')->ignore($product?->id)],
             'sku' => ['required', 'string', 'max:100', Rule::unique('products', 'sku')->ignore($product?->id)],
             'category' => ['required', 'string', 'max:100'],
@@ -197,7 +199,7 @@ class ProductController extends Controller
             ->map(fn ($feature) => trim($feature))->filter()->values()->all();
 
         return [
-            ...Arr::only($data, ['name', 'sku', 'category', 'short_description', 'description', 'material', 'quality_note', 'regular_price', 'discount_price', 'stock_quantity', 'status']),
+            ...Arr::only($data, ['name', 'bangla_name', 'sku', 'category', 'short_description', 'description', 'material', 'quality_note', 'regular_price', 'discount_price', 'stock_quantity', 'status']),
             'slug' => $slug,
             'features' => $features,
             'featured' => $request->boolean('featured'),

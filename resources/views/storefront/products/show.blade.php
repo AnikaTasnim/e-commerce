@@ -3,7 +3,7 @@
 @php
     $catalogEntry = trans('catalog.'.$product->slug, [], 'bn');
     $copy = is_array($catalogEntry) ? $catalogEntry : [];
-    $productName = $copy['name'] ?? $product->name;
+    $productName = filled($product->bangla_name) ? $product->bangla_name : $product->name;
     $categoryName = ['WOMEN' => 'নারীদের', 'MEN' => 'পুরুষদের', 'ACCESSORIES' => 'অনুষঙ্গ'][$product->category] ?? $product->category;
     $districtTranslations = trans('locations.districts', [], 'bn');
     $areaTranslations = trans('locations.areas', [], 'bn');

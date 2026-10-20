@@ -18,10 +18,20 @@ class ProductSeeder extends Seeder
             ['relaxed-trouser', 'Relaxed Tailored Trouser', 'WOMEN', 1990, 1590, 'Stone / Black', 'Viscose blend', 'Soft drape with a comfortable high rise and a tailored finish.', 'An easy match for your favorite tops, from desk to dinner.', 'photo-1506629905607-d9c297d8f0c8', 'photo-1594633312681-425c7b97ccd1', ['S', 'M', 'L', 'XL']],
         ];
 
+        $banglaNames = [
+            'linen-shirt' => 'প্রতিদিনের লিনেন শার্ট',
+            'studio-kurti' => 'স্টুডিও কটন কুর্তি',
+            'weekend-polo' => 'উইকএন্ড নিট পোলো',
+            'soft-weave-scarf' => 'নরম বুননের স্কার্ফ',
+            'city-tote' => 'প্রতিদিনের টোট ব্যাগ',
+            'relaxed-trouser' => 'আরামদায়ক টেইলর্ড ট্রাউজার',
+        ];
+
         foreach ($catalog as $index => [$slug, $name, $category, $regular, $discount, $colors, $material, $quality, $short, $photo, $detailPhoto, $sizes]) {
             $imageUrl = "https://images.unsplash.com/{$photo}?auto=format&fit=crop&w=1200&q=85";
             $product = Product::firstOrCreate(['slug' => $slug], [
                 'name' => $name,
+                'bangla_name' => $banglaNames[$slug] ?? null,
                 'sku' => strtoupper(str_replace('-', '', $slug)),
                 'category' => $category,
                 'description' => "{$short} Available in {$colors}. Choose your preferred size and place your order on this page. Easy exchange support and cash on delivery across Bangladesh.",

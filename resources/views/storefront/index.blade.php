@@ -19,7 +19,7 @@
                 @php($catalogCopy = trans('catalog.'.$product->slug, [], 'bn'))
                 @php($copy = is_array($catalogCopy) ? $catalogCopy : [])
                 @php($categoryName = ['WOMEN' => 'নারীদের', 'MEN' => 'পুরুষদের', 'ACCESSORIES' => 'অনুষঙ্গ'][$product->category] ?? $product->category)
-                @php($productName = $copy['name'] ?? $product->name)
+                @php($productName = filled($product->bangla_name) ? $product->bangla_name : $product->name)
                 <article class="product-card" data-category="{{ $product->category }}" data-name="{{ strtolower($productName) }}">
                     <a class="product-image-wrap" href="{{ route('products.show', $product) }}" aria-label="{{ $productName }} দেখুন">
                         <img src="{{ $image }}" alt="{{ $productName }}" loading="lazy">

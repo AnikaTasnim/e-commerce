@@ -22,6 +22,7 @@
         <section class="admin-card"><h2>Product information</h2>
             <div class="admin-form-grid">
                 <label>Product name<input name="name" value="{{ old('name', $product->name) }}" maxlength="180" required></label>
+                <label>Bangla name <span>(optional; shown on the storefront when provided)</span><input name="bangla_name" value="{{ old('bangla_name', $product->bangla_name) }}" maxlength="180" placeholder="বাংলা পণ্যের নাম"></label>
                 <label>SKU<input name="sku" value="{{ old('sku', $product->sku) }}" maxlength="100" required></label>
                 <label>URL slug <span>(leave blank to generate from name)</span><input name="slug" value="{{ old('slug', $product->slug) }}" maxlength="190"></label>
                 <label>Category<input name="category" value="{{ old('category', $product->category) }}" placeholder="e.g. MEN" maxlength="100" required></label>
