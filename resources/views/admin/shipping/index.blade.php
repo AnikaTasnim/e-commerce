@@ -1,10 +1,10 @@
-@extends('layouts.storefront')
+@extends('layouts.admin')
 
 @section('title', 'Manage delivery charges')
+@section('section', 'Shipping settings')
 
 @section('content')
 <main class="admin-page">
-    @include('admin.partials.navigation')
     <div class="admin-heading"><div><span class="eyebrow">STORE SETTINGS</span><h1>Delivery <em>charges.</em></h1><p>Active options appear on product order forms. Changes apply to new orders only.</p></div></div>
     @if (session('status'))<div class="admin-success">{{ session('status') }}</div>@endif
     <section class="admin-card"><h2>Current delivery options</h2>

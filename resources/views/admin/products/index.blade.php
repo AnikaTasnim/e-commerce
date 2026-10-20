@@ -1,10 +1,10 @@
-@extends('layouts.storefront')
+@extends('layouts.admin')
 
 @section('title', 'Manage products · BSR')
+@section('section', 'Products')
 
 @section('content')
 <main class="admin-page">
-    @include('admin.partials.navigation')
     <div class="admin-heading"><div><span class="eyebrow">STORE MANAGEMENT</span><h1>Products</h1><p>Create and manage the products shown in your storefront.</p></div><a class="button button-dark" href="{{ route('admin.products.create') }}">New product <span>+</span></a></div>
 
     @if (session('status'))<div class="admin-success">{{ session('status') }}</div>@endif

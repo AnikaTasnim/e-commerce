@@ -1,10 +1,10 @@
-@extends('layouts.storefront')
+@extends('layouts.admin')
 
 @section('title', 'Manage orders · BSR')
+@section('section', 'Orders')
 
 @section('content')
 <main class="admin-page">
-    @include('admin.partials.navigation')
     <div class="admin-heading"><div><span class="eyebrow">STORE MANAGEMENT</span><h1>Orders</h1><p>Review customer orders and update their fulfilment status.</p></div></div>
     @if (session('status'))<div class="admin-success">{{ session('status') }}</div>@endif
 

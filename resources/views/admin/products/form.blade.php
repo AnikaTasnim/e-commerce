@@ -1,6 +1,7 @@
-@extends('layouts.storefront')
+@extends('layouts.admin')
 
 @section('title', ($product->exists ? 'Edit product' : 'New product').' · BSR')
+@section('section', 'Products')
 
 @section('content')
 @php
@@ -9,7 +10,6 @@
         : $variant)->all());
 @endphp
 <main class="admin-page">
-    @include('admin.partials.navigation')
     <div class="admin-heading"><div><span class="eyebrow">PRODUCT CATALOG</span><h1>{{ $product->exists ? 'Edit product' : 'Create product' }}</h1><p>Manage product details, images, stock, and options.</p></div><a class="text-button" href="{{ route('admin.products.index') }}">Back to products</a></div>
 
     @if ($errors->any())<div class="form-error-summary" role="alert">Please review the highlighted product details. {{ $errors->first() }}</div>@endif

@@ -1,10 +1,10 @@
-@extends('layouts.storefront')
+@extends('layouts.admin')
 
 @section('title', 'Order '.$order->order_number.' · BSR')
+@section('section', 'Order details')
 
 @section('content')
 <main class="admin-page admin-order-detail-page">
-    @include('admin.partials.navigation')
     <div class="admin-heading"><div><span class="eyebrow">ORDER DETAILS</span><h1>{{ $order->order_number }}</h1><p>Placed {{ $order->created_at->format('d M Y, g:i A') }}</p></div><a class="text-button" href="{{ route('admin.orders.index') }}">Back to orders</a></div>
     @if (session('status'))<div class="admin-success">{{ session('status') }}</div>@endif
 
