@@ -48,6 +48,70 @@ body{font-size:15px;color:#102b37}
 .footer-links div>span{font-size:9px}
 .footer-bottom{font-size:10px;color:#d2e0dd}
 
+.admin-nav{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding:0 0 14px;margin-bottom:28px}
+.admin-nav>a,.admin-nav button{border:1px solid transparent;border-radius:6px;padding:10px 14px;background:transparent;color:#28424a;font-size:13px;font-weight:700;cursor:pointer}
+.admin-nav>a:hover,.admin-nav>a.active{border-color:#f1c29f;background:#fff0e4;color:#a9420c}
+.admin-nav form{margin-left:auto}
+.admin-nav button{color:#80503a}
+.admin-heading .button{gap:12px}
+.admin-product-filters{display:flex;align-items:end;gap:12px;margin-bottom:18px;padding:16px;border:1px solid #efcdb6;border-radius:10px;background:#fff}
+.admin-product-filters label,.admin-form-grid>label,.admin-product-form>.admin-card>label{display:grid;gap:7px;color:#28434c;font-size:12px;font-weight:700}
+.admin-product-filters label:first-child{flex:1}
+.admin-product-filters input,.admin-product-filters select,.admin-form-grid input,.admin-form-grid select,.admin-product-form textarea,.admin-product-form input[type="file"]{width:100%;padding:11px 12px;border:1px solid #d7e1e2;border-radius:6px;background:#fff;color:#18343e;font:inherit;font-size:13px}
+.admin-product-filters .button{min-height:40px}
+.admin-product-table-card{padding:0;overflow:hidden}
+.admin-table-scroll{overflow-x:auto}
+.admin-product-table{width:100%;border-collapse:collapse;text-align:left}
+.admin-product-table th{padding:14px 16px;background:#fff4eb;color:#75401f;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.admin-product-table td{padding:14px 16px;border-top:1px solid #f1e4da;color:#29424a;font-size:13px;vertical-align:middle}
+.admin-product-table td>del{display:block;color:#65767b;font-size:11px}
+.admin-product-table td small{color:#65767b}
+.admin-product-identity{display:flex;align-items:center;gap:12px;min-width:230px}
+.admin-product-identity img{width:52px;height:62px;border-radius:6px;background:#fff0e4;object-fit:cover}
+.admin-product-identity strong,.admin-product-identity span,.admin-product-identity small{display:block}
+.admin-product-identity strong{color:#1b343c;font-size:14px}
+.admin-product-identity span{margin-top:4px;color:#586c71;font-size:11px}
+.admin-product-identity small{margin-top:5px;color:#b84810;font-size:10px;font-weight:700}
+.admin-status{display:inline-flex;border-radius:30px;padding:5px 9px;background:#e6f5ed;color:#11643e;font-size:11px;font-weight:700}
+.admin-status-draft{background:#fff0e4;color:#a9420c}
+.admin-row-actions{display:flex;align-items:center;gap:12px}
+.admin-row-actions a,.admin-row-actions button{padding:0;border:0;background:none;color:#a9420c;font-size:12px;font-weight:700;text-decoration:underline;cursor:pointer}
+.admin-row-actions form{margin:0}
+.admin-empty-row{text-align:center!important;padding:35px!important;color:#586c71!important}
+.admin-pagination{padding:14px 18px}
+.admin-pagination nav{display:flex;justify-content:space-between;align-items:center}
+.admin-pagination nav>div:first-child{font-size:11px;color:#586c71}
+.admin-pagination nav>div:last-child{display:flex;gap:5px}
+.admin-pagination a,.admin-pagination span[aria-current],.admin-pagination span[aria-disabled]{display:inline-grid;place-items:center;min-width:34px;height:34px;padding:0 8px;border:1px solid #edcdb7;border-radius:5px;color:#a9420c;font-size:12px}
+.admin-product-form{display:grid;gap:18px}
+.admin-product-form .admin-card{border:1px solid #efcdb6;border-radius:10px;box-shadow:0 8px 24px rgba(105,53,23,.05)}
+.admin-product-form .admin-card h2,.admin-section-heading h2{margin:0 0 18px;color:#71390f;font-size:24px;font-weight:700}
+.admin-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:17px}
+.admin-form-grid label span,.admin-full-field span,.admin-help{color:#53686f;font-size:11px;font-weight:400}
+.admin-product-form .admin-full-field{display:grid;gap:8px;margin-top:13px;color:#28434c;font-size:12px;font-weight:700}
+.admin-checkbox-field{display:flex!important;align-items:center;gap:9px!important;align-self:end;min-height:42px;color:#24454d!important}
+.admin-checkbox-field input{width:17px;height:17px;accent-color:#d95517}
+.admin-main-image-preview{display:flex;align-items:center;gap:12px;margin:0 0 16px;color:#a9420c;font-size:12px;font-weight:700}
+.admin-main-image-preview img{width:80px;height:90px;border:1px solid #efcdb6;border-radius:6px;background:#fff0e4;object-fit:cover}
+.admin-gallery-grid{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.admin-gallery-grid h3{flex-basis:100%;margin:0;color:#71390f;font-size:14px}
+.admin-gallery-item{width:106px;display:grid;gap:7px;color:#75401f;font-size:11px}
+.admin-gallery-item img{width:106px;height:120px;border-radius:6px;border:1px solid #efcdb6;object-fit:cover}
+.admin-gallery-item span{display:flex;align-items:center;gap:5px}
+.admin-gallery-item input{accent-color:#d95517}
+.admin-section-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.admin-section-heading h2{margin-bottom:5px}
+.admin-help{line-height:1.6;margin:0 0 12px}
+.admin-variant-list{display:grid;gap:10px}
+.admin-variant-row{display:grid;grid-template-columns:1fr 1.2fr 1fr .7fr .9fr auto auto;gap:9px;align-items:end;padding:13px;border:1px solid #efd8c7;border-radius:7px;background:#fffaf6}
+.admin-variant-row>label{display:grid;gap:6px;color:#40575f;font-size:10px;font-weight:700}
+.admin-variant-row input:not([type=checkbox]){width:100%;min-width:0;padding:9px;border:1px solid #d7e1e2;border-radius:5px;background:#fff;font:inherit;font-size:12px}
+.admin-variant-row .admin-checkbox-field{font-size:10px!important}
+.remove-variant-row{width:32px;height:36px;border:1px solid #edcdb7;border-radius:5px;background:#fff0e4;color:#a9420c;font-size:22px;cursor:pointer}
+.admin-form-actions{display:flex;justify-content:flex-end;align-items:center;gap:16px;padding-bottom:36px}
+@media(max-width:800px){.admin-variant-row{grid-template-columns:repeat(3,minmax(0,1fr))}.admin-variant-row .admin-checkbox-field{align-self:center}.admin-product-filters{flex-wrap:wrap}.admin-product-filters label:first-child{min-width:100%}}
+@media(max-width:600px){.admin-nav{overflow-x:auto;gap:4px}.admin-nav>a,.admin-nav button{white-space:nowrap;padding:9px 10px;font-size:11px}.admin-heading{gap:12px}.admin-heading>.button{white-space:nowrap}.admin-form-grid{grid-template-columns:1fr}.admin-variant-row{grid-template-columns:1fr 1fr}.admin-product-table th,.admin-product-table td{padding:12px 10px}.admin-pagination nav{align-items:flex-start;gap:12px;flex-direction:column}}
+
 :root{--accent:#e56b22}
 .announcement{background:linear-gradient(100deg,#087b50 0%,#d95517 100%)}
 .hero h1 em,h2 em{color:#d95517;font-weight:700}

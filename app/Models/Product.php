@@ -11,11 +11,12 @@ class Product extends Model
         'name', 'slug', 'sku', 'category', 'description', 'short_description',
         'regular_price', 'discount_price', 'stock_quantity', 'status',
         'featured', 'main_image', 'material', 'quality_note',
+        'features',
     ];
 
     protected function casts(): array
     {
-        return ['regular_price' => 'decimal:2', 'discount_price' => 'decimal:2', 'featured' => 'boolean'];
+        return ['regular_price' => 'decimal:2', 'discount_price' => 'decimal:2', 'featured' => 'boolean', 'features' => 'array'];
     }
 
     public function getRouteKeyName(): string

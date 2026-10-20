@@ -40,7 +40,13 @@
             <p class="product-promo">A thoughtful favorite, made for the way you live.</p>
             <div class="detail-price" data-price-base="{{ $product->currentPrice() }}" data-price-regular="{{ $product->regular_price }}"><strong id="product-current-price">&#2547;{{ number_format($product->currentPrice()) }}</strong>@if ($product->discount_price)<del>&#2547;{{ number_format($product->regular_price) }}</del><span class="discount-tag" id="detail-discount">−{{ $product->discountPercent() }}%</span>@endif</div>
             <p class="product-short-description">{{ $product->short_description }}</p>
-            <ul class="benefit-list"><li><span>✓</span> {{ $product->quality_note }}</li><li><span>✓</span> Cash on delivery, with clear shipping upfront</li><li><span>✓</span> Easy 7-day size exchange</li></ul>
+            <ul class="benefit-list">
+                @forelse ($product->features ?? [] as $feature)
+                    <li><span>✓</span> {{ $feature }}</li>
+                @empty
+                    <li><span>✓</span> {{ $product->quality_note }}</li><li><span>✓</span> Cash on delivery, with clear shipping upfront</li><li><span>✓</span> Easy 7-day size exchange</li>
+                @endforelse
+            </ul>
             <div class="intro-specs"><div><span>MATERIAL</span><strong>{{ $product->material }}</strong></div><div><span>AVAILABILITY</span><strong>{{ $product->stock_quantity > 0 ? 'Ready to order' : 'Currently sold out' }}</strong></div></div>
             <a class="button button-dark jump-to-order" href="#billing">Choose options & order <span>↓</span></a>
         </div>
