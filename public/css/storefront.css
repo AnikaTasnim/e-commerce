@@ -157,3 +157,5 @@ body{font-size:15px;color:#102b37}
 em,i,.story-doodle,.hero-sticker strong{font-style:normal}
 
 :root{--serif:"Nirmala UI","Noto Sans Bengali",Vrinda,Calibri,Arial,sans-serif;--sans:"Nirmala UI","Noto Sans Bengali",Vrinda,Calibri,Arial,sans-serif}
+
+.product-card{display:flex;flex-direction:column;height:100%}.product-meta{flex:1;width:100%}.product-meta>div{width:100%}.product-meta h3{min-height:2.8em;line-height:1.4}.card-description{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;min-height:3.2em;overflow:hidden}.product-bottom{margin-top:auto;min-height:38px;align-items:center}
