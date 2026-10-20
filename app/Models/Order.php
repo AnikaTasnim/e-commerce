@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Order extends Model
 {
+    public const STATUSES = ['pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled'];
+
     protected $fillable = [
         'order_number', 'customer_name', 'phone', 'address', 'district', 'area', 'customer_notes',
         'subtotal', 'discount_total', 'delivery_charge', 'total', 'payment_method', 'status',
@@ -21,5 +24,10 @@ class Order extends Model
     public function items(): HasMany
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    public function shippingOption(): BelongsTo
+    {
+        return $this->belongsTo(ShippingOption::class);
     }
 }

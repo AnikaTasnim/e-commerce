@@ -29,7 +29,7 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('admin.shipping.index'));
+        return redirect()->intended(route('admin.products.index'));
     }
 
     public function destroy(Request $request): RedirectResponse
