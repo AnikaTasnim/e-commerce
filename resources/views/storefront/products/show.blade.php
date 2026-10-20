@@ -1,13 +1,24 @@
 @extends('layouts.storefront')
 
-@section('title', $product->name.' — Usama')
+@section('title', $product->name.' — BSR')
 
 @section('content')
 <main class="product-page">
     <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{ route('storefront.home') }}">Home</a><span>›</span><span>{{ $product->category }}</span><span>›</span><span>{{ $product->name }}</span></nav>
 
     @if ($confirmation)
-        <section class="order-confirmation" role="status"><span class="confirmation-icon">✓</span><div><span class="eyebrow">ORDER RECEIVED</span><h2>Thank you, {{ $confirmation['customer_name'] }}.</h2><p>Your order <strong>{{ $confirmation['order_number'] }}</strong> is in. We’ll call {{ $confirmation['phone'] }} to confirm delivery. Total due on delivery: <strong>&#2547;{{ number_format($confirmation['total']) }}</strong>.</p></div><a class="text-link" href="{{ route('storefront.home') }}#shop">Browse more pieces <span>↗</span></a></section>
+        <dialog class="order-success-dialog" id="order-success-dialog" aria-labelledby="order-success-title">
+            <section class="order-confirmation order-confirmation-popup" role="status">
+                <span class="confirmation-icon">&#10003;</span>
+                <button class="success-close" id="close-order-success" type="button" aria-label="Close confirmation">&times;</button>
+                <div>
+                    <span class="eyebrow">ORDER RECEIVED</span>
+                    <h2 id="order-success-title">Thank you, {{ $confirmation['customer_name'] }}.</h2>
+                    <p>Your order <strong>{{ $confirmation['order_number'] }}</strong> is in. We will call {{ $confirmation['phone'] }} to confirm delivery. Total due on delivery: <strong>&#2547;{{ number_format($confirmation['total']) }}</strong>.</p>
+                    <a class="text-link" href="{{ route('storefront.home') }}#shop">Continue shopping <span>&#8599;</span></a>
+                </div>
+            </section>
+        </dialog>
     @endif
 
     <section class="product-intro">

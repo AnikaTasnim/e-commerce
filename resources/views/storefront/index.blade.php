@@ -1,6 +1,6 @@
 @extends('layouts.storefront')
 
-@section('title', 'Usama — Thoughtful everyday style')
+@section('title', 'BSR')
 
 @section('content')
 <main id="top">

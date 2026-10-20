@@ -63,6 +63,15 @@
     updateAreas();
   }
 
+  const successDialog = document.querySelector('#order-success-dialog');
+  if (successDialog) {
+    successDialog.showModal();
+    document.querySelector('#close-order-success')?.addEventListener('click', () => successDialog.close());
+    successDialog.addEventListener('click', (event) => {
+      if (event.target === successDialog) successDialog.close();
+    });
+  }
+
   const orderSummary = document.querySelector('.order-summary');
   if (!orderSummary) return;
 
