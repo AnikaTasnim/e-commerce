@@ -25,8 +25,8 @@
                 <label>SKU<input name="sku" value="{{ old('sku', $product->sku) }}" maxlength="100" required></label>
                 <label>URL slug <span>(leave blank to generate from name)</span><input name="slug" value="{{ old('slug', $product->slug) }}" maxlength="190"></label>
                 <label>Category<input name="category" value="{{ old('category', $product->category) }}" placeholder="e.g. MEN" maxlength="100" required></label>
-                <label>Regular price (৳)<input name="regular_price" type="number" min="0" step="0.01" value="{{ old('regular_price', $product->regular_price) }}" required></label>
-                <label>Discount price (৳)<input name="discount_price" type="number" min="0" step="0.01" value="{{ old('discount_price', $product->discount_price) }}"></label>
+                <label>Regular price (BDT)<input name="regular_price" type="number" min="0" step="0.01" value="{{ old('regular_price', $product->regular_price) }}" required></label>
+                <label>Discount price (BDT)<input name="discount_price" type="number" min="0" step="0.01" value="{{ old('discount_price', $product->discount_price) }}"></label>
                 <label>Available stock<input name="stock_quantity" type="number" min="0" value="{{ old('stock_quantity', $product->stock_quantity ?? 0) }}" required></label>
                 <label>Status<select name="status" required><option value="active" @selected(old('status', $product->status ?? 'active') === 'active')>Active</option><option value="draft" @selected(old('status', $product->status ?? 'active') === 'draft')>Draft</option></select></label>
                 <label>Material<input name="material" value="{{ old('material', $product->material) }}" maxlength="180"></label>

@@ -24,7 +24,7 @@
                 @forelse ($products as $product)
                     <tr>
                         <td><div class="admin-product-identity"><img src="{{ $product->main_image_url }}" alt="" loading="lazy"><div><strong>{{ $product->name }}</strong><span>{{ $product->category }} · {{ $product->sku }}</span>@if ($product->featured)<small>Featured</small>@endif</div></div></td>
-                        <td><strong>৳{{ number_format($product->discount_price ?? $product->regular_price) }}</strong>@if ($product->discount_price)<del>৳{{ number_format($product->regular_price) }}</del>@endif</td>
+                        <td><strong>BDT {{ number_format($product->discount_price ?? $product->regular_price) }}</strong>@if ($product->discount_price)<del>BDT {{ number_format($product->regular_price) }}</del>@endif</td>
                         <td>{{ number_format($product->stock_quantity) }}</td>
                         <td>{{ $product->variants_count }} variants<br><small>{{ $product->images_count }} images</small></td>
                         <td><span class="admin-status admin-status-{{ $product->status }}">{{ ucfirst($product->status) }}</span></td>

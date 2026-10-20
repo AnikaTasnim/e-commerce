@@ -13,10 +13,10 @@
             <div class="admin-table-scroll"><table class="admin-product-table"><thead><tr><th>Product / option</th><th>Unit price</th><th>Qty</th><th>Line total</th></tr></thead><tbody>
                 @foreach ($order->items as $item)
                     @php($variantSnapshot = $item->variant_snapshot ?? [])
-                    <tr><td><strong>{{ $item->product_name }}</strong><small class="admin-order-date">{{ $variantSnapshot['name'] ?? 'Option' }}: {{ $variantSnapshot['value'] ?? '—' }}@if (! $item->product) · Removed from catalog @endif</small></td><td>৳{{ number_format($item->unit_price) }}</td><td>{{ $item->quantity }}</td><td><strong>৳{{ number_format($item->line_total) }}</strong></td></tr>
+                    <tr><td><strong>{{ $item->product_name }}</strong><small class="admin-order-date">{{ $variantSnapshot['name'] ?? 'Option' }}: {{ $variantSnapshot['value'] ?? '-' }} @if (! $item->product) (Removed from catalog) @endif</small></td><td>BDT {{ number_format($item->unit_price) }}</td><td>{{ $item->quantity }}</td><td><strong>BDT {{ number_format($item->line_total) }}</strong></td></tr>
                 @endforeach
             </tbody></table></div>
-            <dl class="admin-order-totals"><div><dt>Subtotal</dt><dd>৳{{ number_format($order->subtotal) }}</dd></div>@if ((float) $order->discount_total > 0)<div><dt>Discount</dt><dd>−৳{{ number_format($order->discount_total) }}</dd></div>@endif<div><dt>Shipping · {{ $order->shipping_name_snapshot }}</dt><dd>৳{{ number_format($order->delivery_charge) }}</dd></div><div class="admin-order-grand-total"><dt>Total</dt><dd>৳{{ number_format($order->total) }}</dd></div></dl>
+            <dl class="admin-order-totals"><div><dt>Subtotal</dt><dd>BDT {{ number_format($order->subtotal) }}</dd></div>@if ((float) $order->discount_total > 0)<div><dt>Discount</dt><dd>- BDT {{ number_format($order->discount_total) }}</dd></div>@endif<div><dt>Shipping: {{ $order->shipping_name_snapshot }}</dt><dd>BDT {{ number_format($order->delivery_charge) }}</dd></div><div class="admin-order-grand-total"><dt>Total</dt><dd>BDT {{ number_format($order->total) }}</dd></div></dl>
         </section>
 
         <aside class="admin-order-side-column">

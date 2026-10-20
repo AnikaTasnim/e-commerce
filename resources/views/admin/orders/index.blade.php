@@ -24,7 +24,7 @@
                     <td><strong>{{ $order->customer_name }}</strong><small class="admin-order-date">{{ $order->phone }}</small></td>
                     <td>{{ $order->district }}<small class="admin-order-date">{{ $order->area }}</small></td>
                     <td>{{ $order->items_count }}</td>
-                    <td><strong>৳{{ number_format($order->total) }}</strong></td>
+                    <td><strong>BDT {{ number_format($order->total) }}</strong></td>
                     <td><span class="admin-status admin-status-{{ $order->status }}">{{ ucfirst($order->status) }}</span></td>
                     <td><a class="admin-order-view" href="{{ route('admin.orders.show', $order) }}">View order</a></td>
                 </tr>
