@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Product;
+use App\Models\ShippingOption;
+use Illuminate\View\View;
+
+class ProductController extends Controller
+{
+    public function index(): View
+    {
+        $products = Product::query()
+            ->where('status', 'active')
+            ->where('stock_quantity', '>', 0)
+            ->with('images')
+            ->orderByDesc('featured')
+            ->latest()
+            ->get();
+
+        return view('storefront.index', compact('products'));
+    }
+
+    public function show(Product $product): View
+    {
+        abort_unless($product->status === 'active', 404);
+
+        $product->load([
+            'images',
+            'variants' => fn ($query) => $query->where('is_active', true),
+        ]);
+        $shippingOptions = ShippingOption::query()->where('is_active', true)->orderBy('sort_order')->get();
+        $confirmation = session('order_confirmation');
+
+        return view('storefront.products.show', compact('product', 'shippingOptions', 'confirmation'));
+    }
+}
