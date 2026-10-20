@@ -40,7 +40,7 @@
 
         <section class="admin-card"><h2>Product images</h2><p class="admin-help">Upload images or use HTTPS image URLs. Uploaded files are stored in the app's public storage.</p>
             @if ($product->exists && $product->main_image)
-                <div class="admin-main-image-preview"><img src="{{ $product->main_image }}" alt="Current main product image"><span>Current main image</span></div>
+                <div class="admin-main-image-preview"><img src="{{ $product->main_image_url }}" alt="Current main product image"><span>Current main image</span></div>
             @endif
             <div class="admin-form-grid">
                 <label>Main image URL<input type="url" name="main_image" value="{{ old('main_image', Str::startsWith($product->main_image ?? '', 'storage/') ? '' : $product->main_image) }}" placeholder="https://…" maxlength="255"></label>
@@ -48,7 +48,7 @@
             </div>
             @error('main_image_upload')<span class="field-error">{{ $message }}</span>@enderror
             @if ($product->exists && $product->images->where('is_primary', false)->isNotEmpty())
-                <div class="admin-gallery-grid"><h3>Current gallery</h3>@foreach ($product->images->where('is_primary', false) as $image)<label class="admin-gallery-item"><img src="{{ $image->image_path }}" alt="{{ $image->alt_text ?? $product->name }}"><span><input type="checkbox" name="remove_image_ids[]" value="{{ $image->id }}" @checked(in_array($image->id, old('remove_image_ids', [])))> Remove</span></label>@endforeach</div>
+                <div class="admin-gallery-grid"><h3>Current gallery</h3>@foreach ($product->images->where('is_primary', false) as $image)<label class="admin-gallery-item"><img src="{{ $image->image_url }}" alt="{{ $image->alt_text ?? $product->name }}"><span><input type="checkbox" name="remove_image_ids[]" value="{{ $image->id }}" @checked(in_array($image->id, old('remove_image_ids', [])))> Remove</span></label>@endforeach</div>
             @endif
             <label class="admin-full-field">Add gallery image URLs <span>(one URL per line)</span><textarea name="gallery_urls" rows="3" placeholder="https://example.com/product-detail.jpg">{{ old('gallery_urls') }}</textarea></label>
             <label class="admin-full-field">Upload gallery images<input type="file" name="gallery_uploads[]" accept="image/*" multiple><span>Choose up to 10 image files, 5 MB each.</span></label>

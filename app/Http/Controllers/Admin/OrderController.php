@@ -48,6 +48,6 @@ class OrderController extends Controller
 
         $order->update(['status' => $data['status']]);
 
-        return redirect()->route('admin.orders.show', $order)->with('status', 'Order status updated.');
+        return redirect()->route('admin.orders.index')->with('status', 'Order status updated.');
     }
 }

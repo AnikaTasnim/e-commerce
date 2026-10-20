@@ -95,7 +95,7 @@ class ProductController extends Controller
             $this->syncVariants($product, $data['variants'] ?? []);
         });
 
-        return redirect()->route('admin.products.edit', $product)->with('status', 'Product updated.');
+        return redirect()->route('admin.products.index')->with('status', 'Product updated.');
     }
 
     public function destroy(Product $product): RedirectResponse

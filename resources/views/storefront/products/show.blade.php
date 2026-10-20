@@ -24,11 +24,11 @@
     <section class="product-intro">
         <div class="product-gallery">
             @php($galleryImages = $product->images->isNotEmpty() ? $product->images : collect([(object) ['image_path' => $product->main_image, 'alt_text' => $product->name]]))
-            <div class="product-main-image"><img id="main-product-image" src="{{ $product->main_image }}" alt="{{ $product->name }}" fetchpriority="high"><span class="gallery-index">01 / {{ str_pad((string) $galleryImages->count(), 2, '0', STR_PAD_LEFT) }}</span></div>
+            <div class="product-main-image"><img id="main-product-image" src="{{ $product->main_image_url }}" alt="{{ $product->name }}" fetchpriority="high"><span class="gallery-index">01 / {{ str_pad((string) $galleryImages->count(), 2, '0', STR_PAD_LEFT) }}</span></div>
             @if ($galleryImages->count() > 1)
                 <div class="product-thumbnails" aria-label="Product images">
                     @foreach ($galleryImages as $index => $image)
-                        <button class="product-thumbnail{{ $index === 0 ? ' selected' : '' }}" type="button" data-gallery-image="{{ $image->image_path }}" data-gallery-alt="{{ $image->alt_text ?? $product->name }}" aria-label="View image {{ $index + 1 }}"><img src="{{ $image->image_path }}" alt="" loading="lazy"></button>
+                        <button class="product-thumbnail{{ $index === 0 ? ' selected' : '' }}" type="button" data-gallery-image="{{ $image->image_url }}" data-gallery-alt="{{ $image->alt_text ?? $product->name }}" aria-label="View image {{ $index + 1 }}"><img src="{{ $image->image_url }}" alt="" loading="lazy"></button>
                     @endforeach
                 </div>
             @endif
@@ -103,7 +103,7 @@
 
             <aside class="order-summary" aria-live="polite" data-base-price="{{ $product->currentPrice() }}" data-regular-price="{{ $product->regular_price }}">
                 <span class="eyebrow">YOUR ORDER</span><h3>Order summary</h3>
-                <div class="summary-product"><img src="{{ $product->main_image }}" alt="" loading="lazy"><div><strong>{{ $product->name }}</strong><span id="summary-variant">Choose a size or option</span><span id="summary-quantity">Quantity: {{ old('quantity', 1) }}</span></div><b id="summary-subtotal">&#2547;{{ number_format($product->currentPrice()) }}</b></div>
+                <div class="summary-product"><img src="{{ $product->main_image_url }}" alt="" loading="lazy"><div><strong>{{ $product->name }}</strong><span id="summary-variant">Choose a size or option</span><span id="summary-quantity">Quantity: {{ old('quantity', 1) }}</span></div><b id="summary-subtotal">&#2547;{{ number_format($product->currentPrice()) }}</b></div>
                 @if ($product->discount_price)<div class="summary-row discount-row"><span>You save</span><strong id="summary-discount">−&#2547;{{ number_format($product->regular_price - $product->currentPrice()) }}</strong></div>@endif
                 <div class="summary-row"><span>Subtotal</span><strong id="summary-subtotal-line">&#2547;{{ number_format($product->currentPrice()) }}</strong></div>
                 <div class="summary-row"><span id="summary-shipping-name">{{ $shippingOptions->first()?->name ?? 'Delivery' }}</span><strong id="summary-shipping">&#2547;{{ number_format($shippingOptions->first()?->charge ?? 0) }}</strong></div>

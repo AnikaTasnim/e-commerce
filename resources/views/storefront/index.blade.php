@@ -15,7 +15,7 @@
         <div class="shop-tools"><div class="filter-list" role="group" aria-label="Filter products"><button class="filter-chip active" data-category="ALL">Everything <span>{{ $products->count() }}</span></button><button class="filter-chip" data-category="WOMEN">Women</button><button class="filter-chip" data-category="MEN">Men</button><button class="filter-chip" data-category="ACCESSORIES">Accessories</button></div><label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.4 4.4"/></svg><input id="product-search" type="search" placeholder="Find something..." aria-label="Search products"></label></div>
         <div class="product-grid" id="product-grid">
             @forelse ($products as $product)
-                @php($image = $product->images->first()?->image_path ?? $product->main_image)
+                @php($image = $product->images->first()?->image_url ?? $product->main_image_url)
                 <article class="product-card" data-category="{{ $product->category }}" data-name="{{ strtolower($product->name) }}">
                     <a class="product-image-wrap" href="{{ route('products.show', $product) }}" aria-label="View {{ $product->name }}">
                         <img src="{{ $image }}" alt="{{ $product->name }}" loading="lazy">

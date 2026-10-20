@@ -36,7 +36,7 @@ class ShippingOptionController extends Controller
             'sort_order' => (int) ShippingOption::query()->max('sort_order') + 1,
         ]);
 
-        return back()->with('status', 'Delivery option added.');
+        return redirect()->route('admin.shipping.index')->with('status', 'Delivery option added.');
     }
 
     public function update(Request $request, ShippingOption $shippingOption): RedirectResponse
@@ -51,13 +51,13 @@ class ShippingOptionController extends Controller
             'is_active' => $request->boolean('is_active'),
         ]);
 
-        return back()->with('status', 'Delivery option updated.');
+        return redirect()->route('admin.shipping.index')->with('status', 'Delivery option updated.');
     }
 
     public function destroy(ShippingOption $shippingOption): RedirectResponse
     {
         $shippingOption->delete();
 
-        return back()->with('status', 'Delivery option removed.');
+        return redirect()->route('admin.shipping.index')->with('status', 'Delivery option removed.');
     }
 }

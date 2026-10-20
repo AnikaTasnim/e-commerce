@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
@@ -17,6 +18,23 @@ class Product extends Model
     protected function casts(): array
     {
         return ['regular_price' => 'decimal:2', 'discount_price' => 'decimal:2', 'featured' => 'boolean', 'features' => 'array'];
+    }
+
+    public function getMainImageUrlAttribute(): string
+    {
+        $path = $this->main_image;
+
+        if (blank($path)) {
+            return '';
+        }
+
+        if (Str::startsWith($path, ['http://', 'https://', '//'])) {
+            return $path;
+        }
+
+        $localPath = ltrim($path, '/');
+
+        return '/'.(Str::startsWith($localPath, 'storage/') ? $localPath : 'storage/'.$localPath);
     }
 
     public function getRouteKeyName(): string
