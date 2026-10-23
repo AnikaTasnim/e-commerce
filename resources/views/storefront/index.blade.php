@@ -79,6 +79,25 @@
         <div class="story-copy"><span class="eyebrow">A NOTE FROM SWEETCRUST</span><h2>Good finds should feel <em>like you.</em></h2><p>We believe getting dressed can be simple, comfortable, and full of personality. SweetCrust brings together everyday pieces chosen for how they feel as much as how they look.</p><a class="text-link" href="#shop">Find your everyday favorite <span>&#8599;</span></a><span class="story-doodle">Made with care <span>♡</span></span></div>
     </section>
 
+    <section class="why-section" id="why-sweetcrust" aria-labelledby="why-heading">
+        <div class="why-heading"><span class="eyebrow">THE SWEETCRUST DIFFERENCE</span><h2 id="why-heading">Why choose <em>SweetCrust?</em></h2><p>A simple promise: thoughtful pieces, everyday comfort, and an easy way to shop.</p></div>
+        <div class="why-grid">
+            <article class="why-card"><span class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 4.5C11 4.7 5.2 7.4 5.2 13.1a5.1 5.1 0 0 0 5.1 5.1c5.7 0 8.4-5.8 8.6-13.7Z"/><path d="M4.5 20c2.2-4 5.4-6.7 9.6-8.8"/></svg></span><h3>Picked with care</h3><p>Useful details, considered materials, and quality checks before each order is sent.</p></article>
+            <article class="why-card"><span class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v8m0 0 5.7-5.7M12 11 6.3 5.3M5 13.5c0 4 2.8 6.5 7 6.5s7-2.5 7-6.5V12H5v1.5Z"/></svg></span><h3>Comfort for every day</h3><p>Easy-to-wear favorites made to fit naturally into workdays, weekends, and everything between.</p></article>
+            <article class="why-card"><span class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M10 17h4"/></svg></span><h3>Simple online ordering</h3><p>Choose your options, enter your details, and review delivery charges before confirming.</p></article>
+            <article class="why-card"><span class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M5 10h6"/></svg></span><h3>Delivered with care</h3><p>Cash on delivery across Bangladesh, with clear shipping costs and exchange support.</p></article>
+        </div>
+    </section>
+
+    <section class="testimonial-section" id="kind-words" aria-labelledby="testimonial-heading">
+        <div class="testimonial-heading"><span class="eyebrow">KIND WORDS</span><h2 id="testimonial-heading">What our customers <em>say.</em></h2><p>Sample testimonials for layout preview only. Replace these with verified customer reviews before publishing.</p></div>
+        <div class="testimonial-grid">
+            <article class="testimonial-card"><div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>“The fabric feels lovely, and the relaxed fit is just right for everyday wear. I’m already planning another order.”</blockquote><div class="testimonial-author"><span class="testimonial-avatar avatar-rose">S</span><span><strong>Sample customer</strong><small>Illustrative review</small></span></div></article>
+            <article class="testimonial-card"><div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>“Ordering was simple, and I could see the delivery charge before confirming. The whole process felt easy.”</blockquote><div class="testimonial-author"><span class="testimonial-avatar avatar-olive">R</span><span><strong>Sample customer</strong><small>Illustrative review</small></span></div></article>
+            <article class="testimonial-card"><div class="testimonial-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div><blockquote>“My scarf arrived just as pictured, neatly packed and ready to wear. A sweet little addition to my wardrobe.”</blockquote><div class="testimonial-author"><span class="testimonial-avatar avatar-butter">A</span><span><strong>Sample customer</strong><small>Illustrative review</small></span></div></article>
+        </div>
+    </section>
+
     <section class="review-section" id="promise"><span class="eyebrow">FROM BROWSE TO DOORSTEP</span><div class="review-quote">A lovely find, a simple order, and delivery details you can see before you check out.</div><div class="review-byline"><span>Cash on delivery</span><i>·</i><span>Nationwide delivery</span><i>·</i><span>Easy 7-day exchanges</span></div></section>
 
     <section class="newsletter"><div><span class="eyebrow">A LITTLE SWEETNESS FOR YOUR DAY</span><h2>Find something that feels like you.</h2><p>Browse the collection and choose your next everyday favorite.</p></div><a class="button button-dark" href="#shop">Shop SweetCrust <span>&#8599;</span></a></section>

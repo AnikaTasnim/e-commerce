@@ -328,3 +328,51 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #e4aa
 .product-bottom .order-now-link span{color:inherit;font-size:14px}
 .product-bottom .order-now-link:hover{background:#496e1d;border-color:#496e1d;color:#fff;transform:translateY(-1px);box-shadow:0 6px 13px rgba(53,80,21,.22)}
 @media(max-width:650px){.product-bottom .order-now-link{min-height:30px;padding:7px 9px;font-size:8px}}
+
+.why-section{padding:82px 5.2% 92px;background:#fff8ef}
+.why-heading{max-width:760px;margin:0 auto 44px;text-align:center}
+.why-heading .eyebrow{color:#58761f}
+.why-heading h2{margin:13px 0 12px;font-family:var(--serif);font-size:clamp(34px,4vw,48px);font-weight:600;line-height:1.12;letter-spacing:-.045em;color:#48291f}
+.why-heading h2 em{color:#a5475d}
+.why-heading>p{margin:0;color:#755f57;font-size:15px;line-height:1.65}
+.why-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;max-width:1280px;margin:0 auto}
+.why-card{min-height:250px;padding:28px 26px 25px;border:1px solid #f0ded2;border-radius:23px;background:#fff;box-shadow:0 9px 26px rgba(72,41,31,.045);transition:transform .22s,border-color .22s,box-shadow .22s}
+.why-card:hover{transform:translateY(-4px);border-color:#e7adbf;box-shadow:0 16px 34px rgba(72,41,31,.09)}
+.why-icon{width:56px;height:56px;margin-bottom:20px;border-radius:17px;display:grid;place-items:center;background:#f9e3e9;color:#58761f}
+.why-icon svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.why-card h3{margin:0 0 10px;color:#302519;font-size:17px;font-weight:700;line-height:1.4}
+.why-card p{margin:0;color:#755f57;font-size:13px;line-height:1.7}
+@media(max-width:1050px) and (min-width:651px){.main-nav{gap:18px;margin-left:20px}.header-actions{gap:12px}.header-order-link{padding-inline:14px}}
+@media(max-width:950px){.why-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.why-card{min-height:220px}}
+@media(max-width:600px){.why-section{padding:62px 19px 68px}.why-heading{margin-bottom:28px}.why-heading>p{font-size:13px}.why-grid{grid-template-columns:1fr;gap:13px}.why-card{min-height:0;padding:22px;border-radius:18px}.why-icon{width:48px;height:48px;margin-bottom:15px;border-radius:15px}.why-icon svg{width:23px;height:23px}.why-card h3{font-size:15px}.why-card p{font-size:12px}}
+
+.testimonial-section{padding:84px 5.7% 92px;background:#fffaf3}
+.testimonial-heading{max-width:700px;margin:0 auto 42px;text-align:center}
+.testimonial-heading .eyebrow{color:#58761f}
+.testimonial-heading h2{margin:13px 0 13px;font-family:var(--serif);font-size:clamp(34px,4vw,48px);font-weight:600;line-height:1.12;letter-spacing:-.045em;color:#48291f}
+.testimonial-heading h2 em{color:#a5475d}
+.testimonial-heading>p{max-width:600px;margin:0 auto;color:#755f57;font-size:14px;line-height:1.7}
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:1240px;margin:0 auto}
+.testimonial-card{min-height:270px;padding:28px 28px 24px;border:1px solid #f0ded2;border-radius:24px;background:#fff;box-shadow:0 9px 26px rgba(72,41,31,.04);display:flex;flex-direction:column}
+.testimonial-stars{color:#e19b28;font-size:17px;letter-spacing:3px;line-height:1}
+.testimonial-card blockquote{margin:20px 0 25px;color:#48291f;font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.5;letter-spacing:-.015em}
+.testimonial-author{display:flex;align-items:center;gap:12px;margin-top:auto}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:16px;font-weight:700}
+.avatar-rose{background:#f9e3e9;color:#a5475d}.avatar-olive{background:#edf5d5;color:#496e1d}.avatar-butter{background:#fff0cf;color:#916321}
+.testimonial-author strong,.testimonial-author small{display:block}
+.testimonial-author strong{color:#302519;font-size:12px}
+.testimonial-author small{margin-top:3px;color:#8a756d;font-size:10px}
+@media(max-width:850px){.testimonial-grid{grid-template-columns:1fr;max-width:620px;gap:14px}.testimonial-card{min-height:0}.testimonial-card blockquote{font-size:17px}}
+@media(max-width:600px){.testimonial-section{padding:62px 19px 70px}.testimonial-heading{margin-bottom:28px}.testimonial-heading>p{font-size:12px}.testimonial-card{padding:22px;border-radius:19px}.testimonial-card blockquote{margin:17px 0 20px}}
+
+/* Coordinate the lower page sections around the SweetCrust blush and cocoa. */
+.review-section{background:linear-gradient(135deg,#fff8ef 0%,#f8e5e9 100%)}
+.newsletter{background:#e6adbf;border-top:1px solid #dfa0b4;border-bottom:1px solid #dfa0b4}
+.newsletter h2{color:#48291f}
+.newsletter p{color:#684b50}
+.newsletter-form{border-bottom-color:#a85f75}
+.newsletter-form input::placeholder{color:#805d64}
+.site-footer{background:#48291f;color:#fff8ef}
+.footer-links span{color:#e6adbf}
+.footer-bottom{border-color:rgba(230,173,191,.28)}
+.newsletter{background:#fff;border-color:#f0ded2}
