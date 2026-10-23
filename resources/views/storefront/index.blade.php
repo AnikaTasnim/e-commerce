@@ -100,6 +100,24 @@
 
     <section class="review-section" id="promise"><span class="eyebrow">FROM BROWSE TO DOORSTEP</span><div class="review-quote">A lovely find, a simple order, and delivery details you can see before you check out.</div><div class="review-byline"><span>Cash on delivery</span><i>·</i><span>Nationwide delivery</span><i>·</i><span>Easy 7-day exchanges</span></div></section>
 
+    <section class="visit-section" id="visit" aria-labelledby="visit-heading">
+        <div class="visit-details">
+            <span class="eyebrow">SHOP FROM ANYWHERE</span>
+            <h2 id="visit-heading">SweetCrust, <em>wherever you are.</em></h2>
+            <p>We’re an online-first shop, bringing thoughtful everyday finds to customers across Bangladesh.</p>
+            <div class="visit-detail"><span class="visit-detail-icon" aria-hidden="true">⌖</span><div><strong>Where we deliver</strong><span>Across Bangladesh, right to your door</span></div></div>
+            <div class="visit-detail"><span class="visit-detail-icon" aria-hidden="true">◷</span><div><strong>Place an order</strong><span>Shop online anytime, whenever it suits you</span></div></div>
+            <div class="visit-detail"><span class="visit-detail-icon" aria-hidden="true">↗</span><div><strong>Need a hand?</strong><a href="tel:+8801349576952">Call or WhatsApp +880 1349 576 952</a></div></div>
+        </div>
+        <div class="visit-card">
+            <div class="visit-map" role="img" aria-label="Illustration representing SweetCrust delivery across Bangladesh">
+                <span class="map-route map-route-one"></span><span class="map-route map-route-two"></span><span class="map-route map-route-three"></span>
+                <span class="map-pin" aria-hidden="true"><i></i></span><span class="map-label">SWEETCRUST</span><span class="map-area map-area-one">DHAKA</span><span class="map-area map-area-two">BANGLADESH</span>
+            </div>
+            <div class="visit-card-footer"><div><strong>SweetCrust online</strong><span>Thoughtful finds, delivered nationwide.</span></div><a class="visit-directions" href="#shop">Explore the shop <span>↗</span></a></div>
+        </div>
+    </section>
+
     <section class="newsletter"><div><span class="eyebrow">A LITTLE SWEETNESS FOR YOUR DAY</span><h2>Find something that feels like you.</h2><p>Browse the collection and choose your next everyday favorite.</p></div><a class="button button-dark" href="#shop">Shop SweetCrust <span>&#8599;</span></a></section>
 </main>
 @endsection

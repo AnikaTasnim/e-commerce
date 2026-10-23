@@ -16,7 +16,7 @@
 <div class="announcement"><span>Thoughtful finds, delivered to your door</span><span class="announcement-note">Cash on delivery · Nationwide shipping</span></div>
 <header class="site-header">
     <a class="brand" href="{{ route('storefront.home') }}" aria-label="SweetCrust home"><img class="brand-logo" src="{{ asset('images/sweet-crust-wordmark.png') }}?v=1" alt="SweetCrust"></a>
-    <nav class="main-nav" aria-label="Main navigation"><a href="{{ route('storefront.home') }}#shop">Shop</a><a href="{{ route('storefront.home') }}#story">Our Story</a><a href="{{ route('storefront.home') }}#why-sweetcrust">Why SweetCrust</a><a href="{{ route('storefront.home') }}#promise">Our Promise</a></nav>
+    <nav class="main-nav" aria-label="Main navigation"><a href="{{ route('storefront.home') }}#shop">Shop</a><a href="{{ route('storefront.home') }}#story">Our Story</a><a href="{{ route('storefront.home') }}#why-sweetcrust">Why SweetCrust</a><a href="{{ route('storefront.home') }}#visit">Delivery</a><a href="{{ route('storefront.home') }}#promise">Our Promise</a></nav>
     <div class="header-actions"><a href="{{ route('storefront.home') }}#shop" class="search-link" aria-label="Browse products"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.4 4.4"/></svg></a><a class="header-order-link" href="{{ route('storefront.home') }}#shop">Shop the collection</a></div>
 </header>
 @yield('content')

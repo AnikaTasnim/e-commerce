@@ -376,3 +376,49 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #e4aa
 .footer-links span{color:#e6adbf}
 .footer-bottom{border-color:rgba(230,173,191,.28)}
 .newsletter{background:#fff;border-color:#f0ded2}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);box-shadow:0 5px 22px rgba(72,41,31,.07);backdrop-filter:blur(12px)}
+html{scroll-padding-top:100px}
+.visit-section{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:8%;align-items:center;padding:88px 6.3%;background:#fbf5ef;border-top:1px solid #f0e4d9}
+.visit-details{max-width:510px}
+.visit-details>.eyebrow{color:#b95c39}
+.visit-details h2{margin:14px 0 12px;color:#48291f;font-family:var(--serif);font-size:clamp(34px,4vw,48px);font-weight:600;line-height:1.08;letter-spacing:-.045em}
+.visit-details h2 em{color:#a5475d}
+.visit-details>p{max-width:440px;margin:0 0 27px;color:#755f57;font-size:14px;line-height:1.75}
+.visit-detail{display:flex;align-items:center;gap:13px;margin-top:16px}
+.visit-detail-icon{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:14px;background:#fce6d5;color:#c65f2d;font-size:21px}
+.visit-detail strong,.visit-detail div>span,.visit-detail a{display:block}
+.visit-detail strong{margin-bottom:4px;color:#302519;font-size:13px}
+.visit-detail div>span,.visit-detail a{color:#755f57;font-size:12px;line-height:1.5}
+.visit-detail a:hover{color:#a5475d}
+.visit-card{overflow:hidden;border:1px solid #eaded2;border-radius:28px;background:#fff;box-shadow:0 15px 42px rgba(72,41,31,.07)}
+.visit-map{height:300px;position:relative;overflow:hidden;background-color:#f0f4e9;background-image:linear-gradient(rgba(105,137,88,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(105,137,88,.12) 1px,transparent 1px);background-size:35px 35px}
+.visit-map:before,.visit-map:after{content:"";position:absolute;background:#fffdf9;border:1px solid #e5ded1;box-shadow:0 0 0 7px rgba(255,253,249,.42)}
+.visit-map:before{width:125%;height:36px;left:-10%;top:44%;transform:rotate(-8deg)}
+.visit-map:after{width:30px;height:140%;left:64%;top:-18%;transform:rotate(12deg)}
+.map-route{position:absolute;z-index:1;height:9px;border-radius:10px;background:#e8cdb4;opacity:.9}
+.map-route-one{width:24%;left:9%;top:23%;transform:rotate(18deg)}
+.map-route-two{width:21%;right:7%;top:70%;transform:rotate(-14deg)}
+.map-route-three{width:13%;left:22%;bottom:12%;transform:rotate(-27deg)}
+.map-pin{position:absolute;z-index:2;left:51%;top:44%;width:37px;height:37px;display:grid;place-items:center;border-radius:50% 50% 50% 4px;background:#c85d77;box-shadow:0 7px 15px rgba(95,49,56,.25);transform:translate(-50%,-50%) rotate(-45deg)}
+.map-pin i{width:12px;height:12px;border-radius:50%;background:#fff3df}
+.map-label,.map-area{position:absolute;z-index:2;color:#66584c;font-size:9px;font-weight:700;letter-spacing:.13em}
+.map-label{left:calc(51% + 26px);top:calc(44% - 23px);padding:7px 10px;border:1px solid rgba(234,222,210,.85);border-radius:20px;background:rgba(255,255,255,.88)}
+.map-area-one{left:13%;top:68%;color:#9b8b78}
+.map-area-two{right:9%;top:20%;color:#9b8b78}
+.visit-card-footer{min-height:88px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.visit-card-footer strong,.visit-card-footer span{display:block}
+.visit-card-footer strong{margin-bottom:5px;color:#48291f;font-family:var(--serif);font-size:19px}
+.visit-card-footer div>span{color:#806c60;font-size:12px}
+.visit-directions{display:inline-flex;align-items:center;gap:13px;min-height:44px;padding:0 18px;border-radius:24px;background:#a5475d;color:#fff;font-size:11px;font-weight:700;white-space:nowrap;transition:background .2s,transform .2s}
+.visit-directions:hover{background:#84364a;transform:translateY(-2px)}
+.visit-directions span{font-size:15px}
+.visit-section{background:#ad3d61;border-top-color:#96324f}
+.visit-details>.eyebrow{color:#ffe0a8}
+.visit-details h2,.visit-detail strong{color:#fff8ef}
+.visit-details h2 em{color:#ffd48e}
+.visit-details>p,.visit-detail div>span,.visit-detail a{color:#fbe7ed}
+.visit-detail-icon{background:#fff1f1;color:#a33355}
+.visit-detail a:hover{color:#ffe0a8}
+.main-nav a{font-weight:700}
+@media(max-width:850px){.visit-section{grid-template-columns:1fr;gap:32px;padding:70px 7%}.visit-details{max-width:640px}.visit-map{height:260px}}
+@media(max-width:650px){html{scroll-padding-top:88px}.site-header{position:sticky;top:0}.visit-section{gap:27px;padding:58px 20px}.visit-details h2{font-size:36px}.visit-details>p{font-size:13px}.visit-card{border-radius:22px}.visit-map{height:220px;background-size:29px 29px}.visit-card-footer{align-items:flex-start;flex-direction:column;padding:17px}.visit-card-footer strong{font-size:17px}.visit-directions{min-height:40px}.main-nav{max-height:calc(100vh - 88px);overflow:auto}}

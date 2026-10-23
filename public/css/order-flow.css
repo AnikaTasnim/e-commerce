@@ -24,6 +24,59 @@
 .info-note span{font-size:9px}
 .info-note p{font-size:12px;color:#40565e}
 .information-specs dt{font-size:11px;color:#465d65}
+.product-page .breadcrumbs{color:#856d68}
+.product-page .breadcrumbs a{color:#a5475d;font-weight:600}
+.product-page .breadcrumbs a:hover{color:#763047}
+.product-intro{background:#fff5f2;border:1px solid #f2dfdb;border-radius:28px;padding-top:24px;padding-bottom:48px}
+.product-main-image{background:#f5dce1}
+.product-thumbnail.selected{border:2px solid #ad3d61;opacity:1}
+.product-intro-copy>.eyebrow,.billing-heading>.eyebrow{color:#ad3d61}
+.product-intro-copy h1{color:#48291f}
+.product-promo{color:#79545a}
+.detail-price strong{color:#8c304e}
+.detail-price .discount-tag{background:#f5c56d;color:#48291f}
+.product-short-description,.benefit-list{color:#624f4b}
+.benefit-list li span{color:#ad3d61}
+.intro-specs{border-color:#e9c9cf}
+.intro-specs div span{color:#9b727b}
+.product-page .button-dark{background:#ad3d61;color:#fff8ef;box-shadow:0 9px 22px rgba(122,40,68,.2)}
+.product-page .button-dark:hover{background:#84304e}
+.product-information{background:#ad3d61;color:#fff8ef}
+.information-copy>.eyebrow,.information-specs>.eyebrow{color:#ffe0a8}
+.information-copy h2,.information-specs h3{color:#fff8ef}
+.information-copy h2 em{color:#ffd48e}
+.information-copy>p{color:#fbe7ed}
+.info-note{border-color:#ffd48e}
+.info-note span{color:#ffe0a8}
+.info-note p{color:#fff0f1}
+.information-specs{padding:24px 28px;border:1px solid rgba(255,248,239,.28);border-radius:22px;background:#fff8ef;color:#48291f}
+.information-specs h3{color:#48291f}
+.information-specs dl>div{border-color:#ead6d4}
+.information-specs dt{color:#9a6875}
+.information-specs dd{color:#50383a}
+.billing-section{background:#fff2f3}
+.billing-heading h2{color:#48291f}
+.billing-heading h2 em{color:#ad3d61}
+.billing-heading>p{color:#755f63}
+.form-section{border-top-color:#eccbd3}
+.form-section legend span{color:#ad3d61}
+.form-section>label,.form-two-columns label{color:#543840}
+.form-section input:not([type=radio]),.form-section textarea,.form-section select{border-color:#e6cfd1;background:#fffdfb;color:#48291f}
+.form-section input:focus,.form-section textarea:focus,.form-section select:focus{border-color:#ad3d61;box-shadow:0 0 0 3px rgba(173,61,97,.12)}
+.quantity-input{border-color:#e6cfd1;background:#fffdfb}
+.quantity-input button{color:#ad3d61}
+.shipping-option,.payment-choice{border-color:#ead4d8;background:#fffdfb}
+.shipping-option:has(input:checked),.payment-choice:has(input:checked){border-color:#ad3d61;background:#fff0f3}
+.shipping-option>input,.payment-choice>input{accent-color:#ad3d61}
+.cod-mark{color:#ad3d61;border-color:#e7bec9;background:#fff5f2}
+.order-summary{background:#fff;border-color:#ebcdd3;box-shadow:0 14px 34px rgba(122,40,68,.09)}
+.order-summary h3{color:#48291f}
+.summary-product,.summary-total{border-color:#f0dce0}
+.summary-total strong{color:#8c304e}
+.discount-row{color:#a5475d}
+.place-order-button{background:#ad3d61;color:#fff8ef}
+.place-order-button:hover{background:#84304e}
+@media(max-width:650px){.product-intro{padding:15px 14px 28px;border-radius:0 0 22px 22px}.product-intro-copy{padding:0}.information-specs{padding:20px}.form-section{padding:20px 0}}
 .information-specs dd{font-size:12px;color:#1e3740}
 .form-section>label,.form-two-columns label{font-size:11px;color:#263f48}
 .form-section input:not([type=radio]),.form-section textarea,.form-section select{font-size:13px;color:#18343e}
@@ -122,3 +175,40 @@
 .order-summary{border-color:#efcfbf}
 .shipping-option:has(input:checked),.payment-choice:has(input:checked){border-color:#729b2b;background:#eff7d5}
 .shipping-option>input,.payment-choice>input{accent-color:#496e1d}
+/* SweetCrust product detail sections: warm blush, deep rose and clear cream surfaces. */
+.product-page .breadcrumbs a{color:#a5475d}
+.product-page .detail-price strong,.product-page .summary-total strong,.product-page .discount-row{color:#8c304e}
+.product-page .product-information{background:#ad3d61;color:#fff8ef}
+.product-page .information-copy>.eyebrow{color:#ffe0a8}
+.product-page .information-copy h2,.product-page .information-specs h3{color:#fff8ef}
+.product-page .information-copy h2 em{color:#ffd48e}
+.product-page .information-copy>p{color:#fbe7ed}
+.product-page .info-note{border-color:#ffd48e}
+.product-page .info-note span{color:#ffe0a8}
+.product-page .info-note p{color:#fff0f1}
+.product-page .information-specs{padding:24px 28px;border:1px solid rgba(255,248,239,.28);border-radius:22px;background:#fff8ef;color:#48291f}
+.product-page .information-specs h3{color:#48291f}
+.product-page .information-specs dl>div{border-color:#ead6d4}
+.product-page .information-specs dt{color:#9a6875}
+.product-page .information-specs dd{color:#50383a}
+.product-page .billing-section{background:#fff2f3}
+.product-page .billing-heading h2{color:#48291f}
+.product-page .billing-heading h2 em{color:#ad3d61}
+.product-page .billing-heading>p{color:#755f63}
+.product-page .form-section{border-top-color:#eccbd3}
+.product-page .form-section legend span{color:#ad3d61}
+.product-page .form-section>label,.product-page .form-two-columns label{color:#543840}
+.product-page .form-section input:not([type=radio]),.product-page .form-section textarea,.product-page .form-section select{border-color:#e6cfd1;background:#fffdfb;color:#48291f}
+.product-page .form-section input:focus,.product-page .form-section textarea:focus,.product-page .form-section select:focus{border-color:#ad3d61;box-shadow:0 0 0 3px rgba(173,61,97,.12)}
+.product-page .quantity-input{border-color:#e6cfd1;background:#fffdfb}
+.product-page .quantity-input button{color:#ad3d61}
+.product-page .shipping-option,.product-page .payment-choice{border-color:#ead4d8;background:#fffdfb}
+.product-page .shipping-option:has(input:checked),.product-page .payment-choice:has(input:checked){border-color:#ad3d61;background:#fff0f3}
+.product-page .shipping-option>input,.product-page .payment-choice>input{accent-color:#ad3d61}
+.product-page .cod-mark{color:#ad3d61;border-color:#e7bec9;background:#fff5f2}
+.product-page .order-summary{background:#fff;border-color:#ebcdd3;box-shadow:0 14px 34px rgba(122,40,68,.09)}
+.product-page .order-summary h3{color:#48291f}
+.product-page .summary-product,.product-page .summary-total{border-color:#f0dce0}
+.product-page .place-order-button{background:#ad3d61;color:#fff8ef;box-shadow:0 9px 22px rgba(122,40,68,.2)}
+.product-page .place-order-button:hover{background:#84304e;color:#fff}
+@media(max-width:650px){.product-page .information-specs{padding:20px}}
