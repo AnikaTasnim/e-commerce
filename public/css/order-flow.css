@@ -63,3 +63,28 @@
 .order-confirmation-popup .text-link{display:inline-flex;gap:7px;color:#b84810;font-size:13px;font-weight:700}
 .success-close{position:absolute;top:12px;right:13px;width:34px;height:34px;border:0;border-radius:50%;background:#fff0e4;color:#81370f;font-size:24px;line-height:1;cursor:pointer}
 @media(max-width:650px){.order-confirmation-popup{padding:28px 22px}.order-confirmation-popup h2{font-size:23px}.order-confirmation-popup p{font-size:13px}}
+
+/* Keep product details and checkout on the same DeshiCart color system. */
+:root{--paper:#f6fafb;--ink:#17324d;--muted:#526779;--green:#087e8b;--line:#dce8ed;--accent:#e4572e}
+.breadcrumbs{color:#526779}
+.breadcrumbs a{color:#087e8b}
+.product-information{background:#e8f4f4}
+.info-note{border-color:#087e8b}
+.intro-specs div strong{color:#17324d}
+.billing-section{background:#f6fafb}
+.form-section{border-top-color:#dce8ed}
+.form-section legend span{color:#e4572e}
+.form-section>label,.form-two-columns label{color:#29465d}
+.order-summary{background:#fff;border-color:#dce8ed;box-shadow:0 12px 30px rgba(23,50,77,.07)}
+.summary-total{border-color:#dce8ed}
+.summary-total strong,.detail-price strong,.discount-row{color:#c74622}
+.shipping-option:has(input:checked),.payment-choice:has(input:checked){border-color:#087e8b;background:#e8f4f4}
+.shipping-option>input,.payment-choice>input{accent-color:#087e8b}
+.place-order-button{background:#e4572e;box-shadow:0 8px 20px rgba(228,87,46,.2)}
+.place-order-button:hover{background:#bd3d1c}
+.order-confirmation{background:#e8f4f4}
+.confirmation-icon{background:#087e8b}
+.admin-success{background:#e8f4f4;color:#17324d}
+.order-confirmation-popup{border-color:#dce8ed}
+.order-confirmation-popup .text-link{color:#c74622}
+.success-close{background:#fff4d8;color:#704900}

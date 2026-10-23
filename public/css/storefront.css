@@ -158,4 +158,41 @@ em,i,.story-doodle,.hero-sticker strong{font-style:normal}
 
 :root{--serif:"Nirmala UI","Noto Sans Bengali",Vrinda,Calibri,Arial,sans-serif;--sans:"Nirmala UI","Noto Sans Bengali",Vrinda,Calibri,Arial,sans-serif}
 
+/* DeshiCart color system: citrus orange, deep ink, and a cool teal counterpoint. */
+:root{--paper:#f6fafb;--white:#fff;--ink:#17324d;--muted:#526779;--green:#087e8b;--line:#dce8ed;--accent:#e4572e;--sun:#ffc857;--serif:"Nirmala UI","Noto Sans Bengali",Vrinda,Calibri,Arial,sans-serif;--sans:"Nirmala UI","Noto Sans Bengali",Vrinda,Calibri,Arial,sans-serif}
+body{background:var(--paper);color:var(--ink)}
+.announcement{background:linear-gradient(100deg,#087e8b 0%,#12566f 55%,#e4572e 100%);color:#fff}
+.announcement-note{color:#d5edf0}
+.site-header{background:#fff;border-bottom-color:#e1ebef}
+.brand-mark{border-color:var(--green);color:var(--green)}
+.brand-period,.main-nav a:hover,.text-link:hover{color:var(--accent)}
+.main-nav a{color:#526779}
+.bag-count{background:var(--accent)}
+.hero{background:radial-gradient(ellipse at 5% 12%,rgba(255,200,87,.18),transparent 30%),var(--paper)}
+.hero h1 em,h2 em{color:var(--green)}
+.hero-copy .eyebrow i{background:var(--sun)}
+.hero-visual{background:#dceff0}
+.hero-sticker{background:var(--sun);color:#17324d;box-shadow:0 12px 30px rgba(23,50,77,.12)}
+.button-dark,.header-order-link{background:var(--accent);box-shadow:0 8px 20px rgba(228,87,46,.2)}
+.button-dark:hover,.header-order-link:hover{background:#bd3d1c}
+.promise-strip{background:#e8f4f4;border-color:#d9eaea}
+.promise-icon{background:#d4ebeb;color:var(--green)}
+.collection-section{background:#fff}
+.filter-chip.active{color:#fff;background:var(--green);border-color:var(--green)}
+.filter-chip:hover{border-color:#74b9bf}
+.product-card{border-color:#e0ebef;box-shadow:0 6px 18px rgba(23,50,77,.035)}
+.product-card:hover{border-color:#69b8bd;box-shadow:0 14px 30px rgba(23,50,77,.12)}
+.product-image-wrap{background:#edf7f7}
+.product-tag{background:var(--sun);color:#493300}
+.discount-tag{background:var(--accent);color:#fff}
+.product-category,.order-now-link{color:#087e8b}
+.price-line strong{color:#17324d}
+.review-section{background:#fff4d8}
+.proof-stars,.review-stars{color:#c68008}
+.site-footer{background:#17324d;color:#f7fbfc}
+.site-footer p,.footer-links a,.footer-bottom{color:#c6d7e0}
+.footer-links span{color:#ffd46c}
+.footer-bottom{border-color:rgba(255,255,255,.17)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #ffc857;outline-offset:3px}
+
 .product-card{display:flex;flex-direction:column;height:100%}.product-meta{flex:1;width:100%}.product-meta>div{width:100%}.product-meta h3{min-height:2.8em;line-height:1.4}.card-description{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;min-height:3.2em;overflow:hidden}.product-bottom{margin-top:auto;min-height:38px;align-items:center}
