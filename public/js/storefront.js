@@ -1,6 +1,6 @@
 (() => {
-  const number = (amount) => Math.round(Number(amount)).toLocaleString('bn-BD');
-  const money = (amount) => `${number(amount)} টাকা`;
+  const number = (amount) => Math.round(Number(amount)).toLocaleString('en-BD');
+  const money = (amount) => `৳${number(amount)}`;
 
   const search = document.querySelector('#product-search');
   if (search) {
@@ -25,6 +25,60 @@
     search.addEventListener('input', applyFilters);
   }
 
+  const heroSlider = document.querySelector('#hero-slider');
+  if (heroSlider) {
+    const slides = [...heroSlider.querySelectorAll('.hero-slide')];
+    const dots = [...heroSlider.querySelectorAll('[data-slider-to]')];
+    const status = heroSlider.querySelector('#hero-slide-status');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let activeSlide = 0;
+    let timer;
+    let paused = false;
+
+    const showSlide = (index) => {
+      activeSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === activeSlide;
+        slide.classList.toggle('is-active', isActive);
+        slide.setAttribute('aria-hidden', String(!isActive));
+        slide.inert = !isActive;
+        const video = slide.querySelector('video');
+        if (video) {
+          if (isActive && !reducedMotion.matches) video.play().catch(() => {});
+          else video.pause();
+        }
+      });
+      dots.forEach((dot, dotIndex) => dot.setAttribute('aria-pressed', String(dotIndex === activeSlide)));
+      if (status) status.textContent = `Slide ${activeSlide + 1} of ${slides.length}: ${slides[activeSlide].dataset.slideLabel}`;
+    };
+
+    const stopTimer = () => window.clearInterval(timer);
+    const startTimer = () => {
+      stopTimer();
+      if (!paused && !reducedMotion.matches && slides.length > 1) {
+        timer = window.setInterval(() => showSlide(activeSlide + 1), 10000);
+      }
+    };
+
+    heroSlider.querySelector('[data-slider-prev]')?.addEventListener('click', () => { showSlide(activeSlide - 1); startTimer(); });
+    heroSlider.querySelector('[data-slider-next]')?.addEventListener('click', () => { showSlide(activeSlide + 1); startTimer(); });
+    dots.forEach((dot) => dot.addEventListener('click', () => { showSlide(Number(dot.dataset.sliderTo)); startTimer(); }));
+    heroSlider.addEventListener('mouseenter', () => { paused = true; stopTimer(); });
+    heroSlider.addEventListener('mouseleave', () => { paused = false; startTimer(); });
+    heroSlider.addEventListener('focusin', () => { paused = true; stopTimer(); });
+    heroSlider.addEventListener('focusout', (event) => {
+      if (!heroSlider.contains(event.relatedTarget)) { paused = false; startTimer(); }
+    });
+    reducedMotion.addEventListener?.('change', () => {
+      if (reducedMotion.matches) heroSlider.querySelector('.hero-slide.is-active video')?.pause();
+      else heroSlider.querySelector('.hero-slide.is-active video')?.play().catch(() => {});
+      startTimer();
+    });
+    if (reducedMotion.matches) heroSlider.querySelector('video')?.pause();
+    document.addEventListener('visibilitychange', () => document.hidden ? stopTimer() : startTimer());
+    startTimer();
+  }
+
   const mainImage = document.querySelector('#main-product-image');
   document.querySelectorAll('[data-gallery-image]').forEach((button) => button.addEventListener('click', () => {
     if (mainImage) {
@@ -41,7 +95,7 @@
     const updateAreas = () => {
       const districtId = districtSelect.value;
       const previousArea = areaSelect.value;
-      areaSelect.replaceChildren(new Option(districtId ? 'এলাকা বেছে নিন' : 'আগে জেলা বেছে নিন', ''));
+      areaSelect.replaceChildren(new Option(districtId ? 'Choose an area' : 'Choose a district first', ''));
       areaOptions.filter((option) => option.dataset.district === districtId).forEach((option) => {
         areaSelect.append(option.cloneNode(true));
       });
@@ -92,8 +146,8 @@
       if (element) element.textContent = value;
     };
     setText('#product-current-price', money(unit));
-    setText('#summary-variant', selected?.value ? selected.textContent.trim() : 'সাইজ বা অপশন বেছে নিন');
-    setText('#summary-quantity', `পরিমাণ: ${number(count)}`);
+    setText('#summary-variant', selected?.value ? selected.textContent.trim() : 'Choose a size or option');
+    setText('#summary-quantity', `Quantity: ${number(count)}`);
     setText('#summary-subtotal', money(subtotal));
     setText('#summary-subtotal-line', money(subtotal));
     setText('#summary-shipping', money(shipping));
@@ -101,7 +155,7 @@
     setText('#place-order-total', money(total));
 
     const shippingName = shippingInput?.closest('.shipping-option')?.querySelector('.shipping-choice strong')?.textContent;
-    setText('#summary-shipping-name', shippingName || 'ডেলিভারি');
+    setText('#summary-shipping-name', shippingName || 'Delivery');
     const discountLine = document.querySelector('#summary-discount')?.closest('.summary-row');
     if (discountLine) {
       discountLine.hidden = savings <= 0;
@@ -110,12 +164,12 @@
     const badge = document.querySelector('#detail-discount');
     if (badge) {
       const percent = regular > 0 ? Math.round(((regular - unit) / regular) * 100) : 0;
-      badge.textContent = `${number(percent)}% ছাড়`;
+      badge.textContent = `${number(percent)}% off`;
       badge.hidden = percent <= 0;
     }
 
     const stockHint = document.querySelector('#stock-hint');
-    if (stockHint) stockHint.textContent = selected?.value ? `${number(available)}টি মজুত আছে` : 'স্টক দেখতে একটি অপশন বেছে নিন।';
+    if (stockHint) stockHint.textContent = selected?.value ? `${number(available)} in stock` : 'Choose an option to check availability.';
     const button = document.querySelector('.place-order-button');
     if (button) button.disabled = !selected?.value || available < 1;
   }

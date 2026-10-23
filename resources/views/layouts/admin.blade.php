@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#f4f7fb">
-    <title>@yield('title', 'BSR Admin Dashboard')</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('images/bsr-icon.svg') }}">
+    <title>@yield('title', 'SweetCrust Admin Dashboard')</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/deshicart-icon.png') }}?v=2">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     @stack('styles')
 </head>

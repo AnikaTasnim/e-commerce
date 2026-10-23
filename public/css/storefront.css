@@ -5,8 +5,8 @@
 
 .dialog-price .discount-tag{position:static}.empty-bag{padding:18px 0;color:var(--muted);font-size:11px}
 
-.brand-logo{display:block;width:auto;height:52px;max-width:185px;object-fit:contain}
-@media(max-width:650px){.brand-logo{height:42px;max-width:150px}}
+.brand-logo{display:block;width:185px;height:52px;max-width:185px;object-fit:cover;object-position:center}
+@media(max-width:650px){.brand-logo{width:150px;height:42px;max-width:150px}}
 
 .announcement{background:linear-gradient(100deg,#078b55 0%,#079b79 58%,#078fca 100%)}
 .site-header{background:#fff;border-bottom-color:#dce9ed}
@@ -195,4 +195,136 @@ body{background:var(--paper);color:var(--ink)}
 .footer-bottom{border-color:rgba(255,255,255,.17)}
 button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #ffc857;outline-offset:3px}
 
+/* Sweet Crust brand colors sampled from the cupcake wordmark. */
+:root{--paper:#fff8ef;--white:#fff;--ink:#48291f;--muted:#755f57;--green:#5c9fa1;--line:#f0ded2;--accent:#d76483;--sun:#d99045}
+body{background:var(--paper);color:var(--ink)}
+.announcement{background:linear-gradient(100deg,#583126 0%,#8b4b35 58%,#c66d68 100%);color:#fff8f0}
+.announcement-note{color:#f8dedc}
+.site-header{height:96px;background:#fff;border-bottom:1px solid #f1e1d5;padding-inline:7.2%}
+.brand-logo{display:block;width:184px;height:86px;max-width:none;object-fit:contain}
+.footer-brand .brand-logo{height:92px}
+.bag-count{background:#d76483}
+.hero{background:radial-gradient(ellipse at 5% 12%,rgba(247,190,203,.28),transparent 31%),#fff8ef}
+.hero h1 em,h2 em{color:#a95645}
+.hero-copy .eyebrow i{background:#e49b55}
+.hero-visual{background:#f5e3dc}
+.hero-sticker{background:#f5c5d0;color:#563229;box-shadow:0 12px 30px rgba(72,41,31,.13)}
+.button-dark,.header-order-link{background:#bd536e;box-shadow:0 8px 20px rgba(189,83,110,.2)}
+.button-dark:hover,.header-order-link:hover{background:#9e3e59}
+.promise-strip{background:#f8e9e2;border-color:#efd9cc}
+.promise-icon{background:#fff5e8;color:#987044}
+.collection-section{background:#fffdf9}
+.filter-chip.active{background:#bd536e;border-color:#bd536e;color:#fff}
+.filter-chip:hover{border-color:#d9a3a8}
+.product-card{background:#fff;border-color:#f0dfd5;box-shadow:0 6px 18px rgba(72,41,31,.04)}
+.product-card:hover{border-color:#dba0a8;box-shadow:0 14px 30px rgba(72,41,31,.11)}
+.product-image-wrap{background:#fbefea}
+.product-tag{background:#f5c56d;color:#52351f}
+.discount-tag{background:#bd536e;color:#fff}
+.product-category,.order-now-link{color:#a34e64}
+.price-line strong{color:#48291f}
+.review-section{background:#fff0d5}
+.proof-stars,.review-stars{color:#bb7c31}
+.site-footer{background:#48291f;color:#fff8ef}
+.site-footer p,.footer-links a,.footer-bottom{color:#ead7cd}
+.footer-links span{color:#f3c97c}
+.footer-bottom{border-color:rgba(255,248,239,.2)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #e4aa60;outline-offset:3px}
+@media(max-width:650px){.site-header{height:82px;padding-inline:19px}.brand-logo{width:152px;height:74px}.footer-brand .brand-logo{width:170px;height:84px}}
+
+/* Fresh olive actions bring a brighter note to the dessert-inspired palette. */
+:root{--action:#5b7d22;--action-hover:#436319}
+.button-dark,.header-order-link,.newsletter-form button{background:var(--action);color:#fff;box-shadow:0 8px 20px rgba(75,105,27,.2)}
+.button-dark:hover,.header-order-link:hover,.newsletter-form button:hover{background:var(--action-hover)}
+.filter-chip.active{background:var(--action);border-color:var(--action);color:#fff}
+.product-category,.order-now-link{color:#58761f}
+.add-button{border-color:#8da958;color:#4e6d1b}
+.add-button:hover{background:var(--action);border-color:var(--action);color:#fff}
+.product-meta h3 a:hover,.footer-links a:hover{color:#d76483}
+.newsletter{background:#f7e4df}
+.story-section{background:#f8e9e2}
+.story-copy>p{color:#654e46}
+.review-quote{color:#48291f}
+.main-nav a:hover,.text-link:hover{color:#58761f}
+@media(max-width:650px){.main-nav{background:#fff8ef}}
+
+/* Turn up the SweetCrust color energy without sacrificing button contrast. */
+:root{--action:#b3d936;--action-hover:#496e1d;--pink-vivid:#d94f78;--coral:#f18a56;--olive-deep:#496e1d}
+.announcement{background:linear-gradient(100deg,#496e1d 0%,#7b9f26 52%,#cb5473 100%)}
+.announcement-note{color:#fff1d9}
+.button-dark,.header-order-link,.newsletter-form button{background:#b3d936;color:#302519;box-shadow:0 9px 22px rgba(81,115,26,.25);font-weight:700}
+.button-dark:hover,.header-order-link:hover,.newsletter-form button:hover{background:#496e1d;color:#fff}
+.hero h1 em,h2 em{color:#a5475d}
+.hero-copy .eyebrow i{background:#f18a56}
+.hero-sticker{background:#c5e84c;color:#3e2a1d}
+.promise-strip{background:#eef7d2;border-color:#dceba9}
+.promise-icon{background:#d8ee80;color:#405f17}
+.filter-chip.active{background:#496e1d;border-color:#496e1d;color:#fff}
+.product-tag{background:#c5e84c;color:#302519}
+.discount-tag{background:#d94f78;color:#fff}
+.product-category,.order-now-link{color:#496e1d}
+.review-section{background:#ffe4aa}
+.proof-stars,.review-stars{color:#bf762b}
+.story-section{background:#f9dfd6}
+.newsletter{background:#f5cbd1}
+.footer-links span{color:#c5e84c}
+.footer-bottom i{color:#f18a56}
+.hero-slide{position:absolute;inset:0;overflow:hidden;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s ease}
+.hero-slide.is-active{opacity:1;visibility:visible;z-index:1}
+.hero-slide .hero-media{display:block;width:100%;height:100%;object-fit:cover;object-position:center 39%}
+.hero-slide video.hero-media{background:#593329}
+.hero-slide .hero-caption{z-index:2;padding-right:112px}
+.hero-sticker{z-index:3}
+.hero-slider-controls{position:absolute;z-index:4;right:16px;bottom:13px;display:flex;align-items:center;gap:10px}
+.hero-slider-controls>button{width:30px;height:30px;border:1px solid rgba(255,255,255,.72);border-radius:50%;display:grid;place-items:center;background:rgba(54,37,26,.42);color:#fff;font-size:14px;cursor:pointer;backdrop-filter:blur(5px);transition:background .2s,transform .2s}
+.hero-slider-controls>button:hover{background:#496e1d;transform:scale(1.06)}
+.hero-slider-dots{display:flex;gap:6px;align-items:center}
+.hero-slider-dots button{width:8px;height:8px;border:1px solid #fff;border-radius:50%;padding:0;background:transparent;cursor:pointer}
+.hero-slider-dots button[aria-pressed="true"]{background:#c5e84c;border-color:#c5e84c;box-shadow:0 0 0 3px rgba(197,232,76,.24)}
+@media(max-width:650px){.hero-slider-controls{right:10px;bottom:10px;gap:7px}.hero-slider-controls>button{width:28px;height:28px}.hero-slide .hero-caption{padding-right:105px;font-size:7px}}
+@media(prefers-reduced-motion:reduce){.hero-slide{transition:none}}
+
+/* SweetCrust pink blends the slider into the surrounding hero. */
+.hero{background:radial-gradient(ellipse at 82% 18%,rgba(255,190,205,.28),transparent 31%),radial-gradient(ellipse at 10% 88%,rgba(126,31,67,.2),transparent 36%),#ad3d61;color:#fff8f1}
+.hero-copy .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border:1px solid rgba(255,239,243,.25);border-radius:999px;background:rgba(255,239,243,.1);color:#ffe8ed;letter-spacing:.09em}
+.hero-copy .eyebrow i{background:#c5e84c;box-shadow:0 0 0 4px rgba(197,232,76,.17)}
+.hero h1{color:#fff8f1}
+.hero h1 em{color:#ffc077}
+.hero-copy>p{color:#ffe3e9}
+.hero-proof{color:#ffe3e9}
+.proof-stars{color:#ffe08a}
+.hero-visual{background:#ad3d61;isolation:isolate}
+.hero-slide video.hero-media{background:#ad3d61}
+.hero-slide .hero-caption{background:linear-gradient(transparent,rgba(73,20,43,.76));color:#fff8f1}
+.hero-side-note{color:#f7d6de}
+.hero-sticker{background:#c5e84c;color:#3e2a1d}
+.hero-slider-controls>button{background:rgba(87,25,49,.58)}
+@media(max-width:650px){.hero{background:radial-gradient(ellipse at 88% 6%,rgba(255,190,205,.24),transparent 28%),#ad3d61}.hero-copy .eyebrow{font-size:8px}}
+
 .product-card{display:flex;flex-direction:column;height:100%}.product-meta{flex:1;width:100%}.product-meta>div{width:100%}.product-meta h3{min-height:2.8em;line-height:1.4}.card-description{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;min-height:3.2em;overflow:hidden}.product-bottom{margin-top:auto;min-height:38px;align-items:center}
+
+/* Supplied blush pink hero color and colorful product action buttons. */
+.hero{background:radial-gradient(ellipse at 82% 18%,rgba(255,255,255,.28),transparent 31%),radial-gradient(ellipse at 10% 88%,rgba(205,112,147,.15),transparent 36%),#e6adc0;color:#48291f}
+.hero-copy .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border:1px solid rgba(72,41,31,.16);border-radius:999px;background:rgba(255,255,255,.3);color:#65444b;letter-spacing:.09em}
+.hero-copy .eyebrow i{background:#bd536e;box-shadow:0 0 0 4px rgba(189,83,110,.15)}
+.hero h1{color:#48291f}
+.hero h1 em{color:#9e405d}
+.hero-copy>p,.hero-proof{color:#60464a}
+.proof-stars{color:#a56a2e}
+.hero-visual,.hero-slide video.hero-media{background:#e6adc0}
+.hero-visual{isolation:isolate}
+.hero-slide .hero-caption{background:linear-gradient(transparent,rgba(72,41,31,.68));color:#fff8f1}
+.hero-side-note{color:#65444b}
+.hero-sticker{background:#f5c56d;color:#48291f}
+.hero-slider-controls>button{background:rgba(72,41,31,.5)}
+.order-now-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 13px;border:1px solid #bd536e;border-radius:999px;background:#bd536e;color:#fff;font-size:10px;font-weight:700;white-space:nowrap;box-shadow:0 5px 13px rgba(189,83,110,.18);transition:background .2s,color .2s,border-color .2s,transform .2s,box-shadow .2s}
+.order-now-link span{font-size:14px;font-weight:400;transition:transform .2s}
+.order-now-link:hover{background:#b3d936;border-color:#b3d936;color:#302519;transform:translateY(-2px);box-shadow:0 7px 15px rgba(81,115,26,.2)}
+.order-now-link:hover span{transform:translate(2px,-2px)}
+.order-now-link:focus-visible{outline:3px solid #e6adc0;outline-offset:3px}
+@media(max-width:650px){.hero{background:radial-gradient(ellipse at 88% 6%,rgba(255,255,255,.24),transparent 28%),#e6adc0}.hero-copy .eyebrow{font-size:8px}.order-now-link{gap:5px;padding:7px 8px;font-size:8px}.order-now-link span{font-size:12px}}
+
+.product-bottom .order-now-link{min-height:34px;padding:8px 12px;border:1px solid #a2c833;border-radius:9px;background:#b3d936;color:#302519;font-size:10px;font-weight:700;line-height:1;box-shadow:0 4px 11px rgba(81,115,26,.17);text-decoration:none}
+.product-bottom .order-now-link span{color:inherit;font-size:14px}
+.product-bottom .order-now-link:hover{background:#496e1d;border-color:#496e1d;color:#fff;transform:translateY(-1px);box-shadow:0 6px 13px rgba(53,80,21,.22)}
+@media(max-width:650px){.product-bottom .order-now-link{min-height:30px;padding:7px 9px;font-size:8px}}

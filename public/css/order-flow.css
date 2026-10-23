@@ -88,3 +88,37 @@
 .order-confirmation-popup{border-color:#dce8ed}
 .order-confirmation-popup .text-link{color:#c74622}
 .success-close{background:#fff4d8;color:#704900}
+
+/* Sweet Crust tones for product details, checkout, and confirmation states. */
+:root{--paper:#fff8ef;--ink:#48291f;--muted:#755f57;--green:#5c9fa1;--line:#f0ded2;--accent:#d76483}
+.breadcrumbs{color:#755f57}
+.breadcrumbs a{color:#a34e64}
+.product-information{background:#f8e9e2}
+.info-note{border-color:#d76483}
+.intro-specs div strong{color:#48291f}
+.billing-section{background:#fff8ef}
+.form-section{border-top-color:#efd9cc}
+.form-section legend span{color:#a34e64}
+.form-section>label,.form-two-columns label{color:#65463d}
+.order-summary{background:#fffdf9;border-color:#f0ded2;box-shadow:0 12px 30px rgba(72,41,31,.07)}
+.summary-total{border-color:#efd9cc}
+.summary-total strong,.detail-price strong,.discount-row{color:#a94361}
+.shipping-option:has(input:checked),.payment-choice:has(input:checked){border-color:#d76483;background:#fff1f4}
+.shipping-option>input,.payment-choice>input{accent-color:#bd536e}
+.place-order-button{background:#bd536e;box-shadow:0 8px 20px rgba(189,83,110,.2)}
+.place-order-button:hover{background:#9e3e59}
+.order-confirmation{background:#f8e9e2}
+.confirmation-icon{background:#5c9fa1}
+.admin-success{background:#e8f3ee;color:#365b4d}
+.order-confirmation-popup{border-color:#f0ded2}
+.order-confirmation-popup .text-link{color:#a94361}
+.success-close{background:#fff0d5;color:#75512a}
+.place-order-button{background:#5b7d22;box-shadow:0 8px 20px rgba(75,105,27,.2)}
+.place-order-button:hover{background:#436319}
+:root{--action:#b3d936}
+.place-order-button{background:#b3d936;color:#302519;box-shadow:0 9px 22px rgba(81,115,26,.25);font-weight:700}
+.place-order-button:hover{background:#496e1d;color:#fff}
+.form-section legend span{color:#a5475d}
+.order-summary{border-color:#efcfbf}
+.shipping-option:has(input:checked),.payment-choice:has(input:checked){border-color:#729b2b;background:#eff7d5}
+.shipping-option>input,.payment-choice>input{accent-color:#496e1d}
