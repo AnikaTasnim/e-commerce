@@ -22,9 +22,35 @@
 .motion-ready .hero-copy > :nth-child(4) { animation-delay: 250ms; }
 .motion-ready .hero-copy > :nth-child(5) { animation-delay: 330ms; }
 
+.hero-blueberry-image {
+    animation: cheesecake-arrive 850ms cubic-bezier(.2,.7,.2,1) both;
+    animation-delay: 120ms;
+}
+.hero-delivery-feature {
+    animation: bakery-rise 650ms cubic-bezier(.2,.7,.2,1) both;
+}
+.home-product-main-image img {
+    transition: transform 550ms cubic-bezier(.2,.7,.2,1), filter 550ms ease;
+}
+.home-product-main-image:hover img {
+    transform: scale(1.045);
+    filter: saturate(1.08);
+}
+.home-checkout-panel {
+    transition: box-shadow 280ms ease, border-color 280ms ease;
+}
+.home-checkout-panel:focus-within {
+    box-shadow: 0 18px 42px rgba(56, 81, 23, .18);
+}
+
 @keyframes bakery-rise {
     from { opacity: 0; transform: translate3d(0, 18px, 0); }
     to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes cheesecake-arrive {
+    from { opacity: 0; transform: translate3d(0, 18px, 0) scale(.96); }
+    to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
 }
 
 .product-card .product-image-wrap,

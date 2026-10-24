@@ -6,9 +6,27 @@
 <main id="top">
     <section class="hero">
         <div class="hero-copy">
+            @unless ($menuPage)
+                <a class="hero-delivery-feature" href="#blueberry-order">
+                    <img src="{{ asset('images/products/blueberry-cheesecake.png') }}" alt="Blueberry Cheesecake" fetchpriority="high">
+                    <span><small>BLUEBERRY CHEESECAKE</small><strong>3 hours delivery</strong></span>
+                </a>
+            @endunless
             <span class="eyebrow"><i></i> BAKED FRESH FOR YOUR MOMENTS</span>
-            <h1>Make today<br><em>a little sweeter.</em></h1>
-            <p>Celebration cakes, creamy cheesecakes, brownies and donuts, freshly prepared and delivered with care.</p>
+            @if ($menuPage)
+                <h1>Make today<br><em>a little sweeter.</em></h1>
+            @else
+                <img class="hero-blueberry-image" src="{{ asset('images/products/blueberry-cheesecake.png') }}" alt="Blueberry Cheesecake" fetchpriority="high">
+            @endif
+            @unless ($menuPage)
+                <div class="hero-promise">
+                    <span class="hero-promise-kicker"><i aria-hidden="true">&#10022;</i> A LITTLE JOY, BAKED FRESH</span>
+                    <p>Order fresh, handcrafted cheesecakes delivered straight to your door today!</p>
+                    <div class="hero-promise-tags"><span>Same-day delivery</span><span>100% fresh</span><span>Satisfaction guaranteed</span></div>
+                </div>
+            @else
+                <p>Celebration cakes, creamy cheesecakes, brownies and donuts, freshly prepared and delivered with care.</p>
+            @endunless
             <!-- <a class="button button-dark" href="#shop">Explore cakes &amp; desserts <span>&#8599;</span></a> -->
             @unless ($menuPage)<a class="button button-dark" href="{{ route('storefront.menu') }}">View Menu <span>&#8599;</span></a>@endunless
             <div class="hero-proof"><span class="proof-stars">&#10003;</span><span>Freshly made &middot; Cash on delivery</span></div>
