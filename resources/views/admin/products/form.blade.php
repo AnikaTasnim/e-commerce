@@ -25,7 +25,7 @@
                 <label>Bangla name <span>(optional; shown on the storefront when provided)</span><input name="bangla_name" value="{{ old('bangla_name', $product->bangla_name) }}" maxlength="180" placeholder="বাংলা পণ্যের নাম"></label>
                 <label>SKU<input name="sku" value="{{ old('sku', $product->sku) }}" maxlength="100" required></label>
                 <label>URL slug <span>(leave blank to generate from name)</span><input name="slug" value="{{ old('slug', $product->slug) }}" maxlength="190"></label>
-                <label>Category<input name="category" value="{{ old('category', $product->category) }}" placeholder="e.g. MEN" maxlength="100" required></label>
+                <label>Category<select name="category" required><option value="CAKES" @selected(old('category', $product->category) === 'CAKES')>Cakes</option><option value="DESSERTS" @selected(old('category', $product->category) === 'DESSERTS')>Desserts</option></select></label>
                 <label>Regular price (BDT)<input name="regular_price" type="number" min="0" step="0.01" value="{{ old('regular_price', $product->regular_price) }}" required></label>
                 <label>Discount price (BDT)<input name="discount_price" type="number" min="0" step="0.01" value="{{ old('discount_price', $product->discount_price) }}"></label>
                 <label>Available stock<input name="stock_quantity" type="number" min="0" value="{{ old('stock_quantity', $product->stock_quantity ?? 0) }}" required></label>
@@ -39,12 +39,12 @@
             <label class="admin-full-field">Product features <span>(one feature per line)</span><textarea name="features_text" rows="4" placeholder="Breathable fabric&#10;Comfortable relaxed fit">{{ old('features_text', implode("\n", $product->features ?? [])) }}</textarea></label>
         </section>
 
-        <section class="admin-card"><h2>Product images</h2><p class="admin-help">Upload images or use HTTPS image URLs. Uploaded files are stored in the app's public storage.</p>
+        <section class="admin-card"><h2>Product images</h2><p class="admin-help">Upload images, use HTTPS image URLs, or keep a bundled bakery image. Uploaded files are stored in the app's public storage.</p>
             @if ($product->exists && $product->main_image)
                 <div class="admin-main-image-preview"><img src="{{ $product->main_image_url }}" alt="Current main product image"><span>Current main image</span></div>
             @endif
             <div class="admin-form-grid">
-                <label>Main image URL<input type="url" name="main_image" value="{{ old('main_image', Str::startsWith($product->main_image ?? '', 'storage/') ? '' : $product->main_image) }}" placeholder="https://…" maxlength="255"></label>
+            <label>Main image URL<input type="url" name="main_image" value="{{ old('main_image', Str::startsWith($product->main_image ?? '', ['storage/', '/images/', 'images/']) ? '' : $product->main_image) }}" placeholder="https://…" maxlength="255"></label>
                 <label>Upload main image<input type="file" name="main_image_upload" accept="image/*"><span>JPEG, PNG, WebP or GIF; up to 5 MB.</span></label>
             </div>
             @error('main_image_upload')<span class="field-error">{{ $message }}</span>@enderror

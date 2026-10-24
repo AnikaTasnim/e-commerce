@@ -27,6 +27,10 @@ class ProductImage extends Model
 
         $localPath = ltrim($this->image_path, '/');
 
+        if (Str::startsWith($localPath, 'images/')) {
+            return '/'.$localPath;
+        }
+
         return '/'.(Str::startsWith($localPath, 'storage/') ? $localPath : 'storage/'.$localPath);
     }
 

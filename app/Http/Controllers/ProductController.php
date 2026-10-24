@@ -14,6 +14,7 @@ class ProductController extends Controller
         $products = Product::query()
             ->where('status', 'active')
             ->where('stock_quantity', '>', 0)
+            ->whereIn('category', ['CAKES', 'DESSERTS'])
             ->with('images')
             ->orderByDesc('featured')
             ->latest()
@@ -24,7 +25,7 @@ class ProductController extends Controller
 
     public function show(Product $product): View
     {
-        abort_unless($product->status === 'active', 404);
+        abort_unless($product->status === 'active' && in_array($product->category, ['CAKES', 'DESSERTS'], true), 404);
 
         $product->load([
             'images',

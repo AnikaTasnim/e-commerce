@@ -2,7 +2,7 @@
 
 @php
     $productName = $product->name;
-    $categoryName = ['WOMEN' => 'Women', 'MEN' => 'Men', 'ACCESSORIES' => 'Accessories'][$product->category] ?? ucfirst(strtolower($product->category));
+    $categoryName = $product->category === 'CAKES' ? 'Cakes' : 'Desserts';
     $shippingTranslations = ['inside-dhaka' => 'Inside Dhaka', 'outside-dhaka' => 'Outside Dhaka'];
 @endphp
 
@@ -21,7 +21,7 @@
                     <span class="eyebrow">ORDER RECEIVED</span>
                     <h2 id="order-success-title">Thank you, {{ $confirmation['customer_name'] }}.</h2>
                     <p>Your order number is <strong>{{ $confirmation['order_number'] }}</strong>. We’ll call {{ $confirmation['phone'] }} to confirm delivery. Pay when it arrives: <strong>৳{{ number_format($confirmation['total']) }}</strong>.</p>
-                    <a class="text-link" href="{{ route('storefront.home') }}#shop">Explore more pieces <span>&#8599;</span></a>
+                    <a class="text-link" href="{{ route('storefront.home') }}#shop">Explore more treats <span>&#8599;</span></a>
                 </div>
             </section>
         </dialog>
@@ -43,7 +43,7 @@
         <div class="product-intro-copy">
             <span class="eyebrow">{{ $categoryName }} · THE SWEETCRUST EDIT</span>
             <h1>{{ $productName }}</h1>
-            <p class="product-promo">An easy-to-love piece, thoughtfully picked for your everyday.</p>
+            <p class="product-promo">A freshly prepared favorite for celebrations, sharing, or a little treat for yourself.</p>
             <div class="detail-price" data-price-base="{{ $product->currentPrice() }}" data-price-regular="{{ $product->regular_price }}"><strong id="product-current-price">৳{{ number_format($product->currentPrice()) }}</strong>@if ($product->discount_price)<del>৳{{ number_format($product->regular_price) }}</del><span class="discount-tag" id="detail-discount">{{ $product->discountPercent() }}% off</span>@endif</div>
             <p class="product-short-description">{{ $product->short_description }}</p>
             <ul class="benefit-list">
@@ -51,21 +51,21 @@
                 @forelse ($features as $feature)
                     <li><span>✓</span> {{ $feature }}</li>
                 @empty
-                    <li><span>✓</span> {{ $product->quality_note }}</li><li><span>✓</span> Cash on delivery, with shipping shown upfront</li><li><span>✓</span> Easy size exchanges within 7 days</li>
+                    <li><span>✓</span> {{ $product->quality_note }}</li><li><span>✓</span> Cash on delivery, with shipping shown upfront</li><li><span>✓</span> Packed carefully for delivery</li>
                 @endforelse
             </ul>
-            <div class="intro-specs"><div><span>Material</span><strong>{{ $product->material }}</strong></div><div><span>Availability</span><strong>{{ $product->stock_quantity > 0 ? 'Ready to order' : 'Currently out of stock' }}</strong></div></div>
+            <div class="intro-specs"><div><span>Prepared</span><strong>{{ $product->material }}</strong></div><div><span>Availability</span><strong>{{ $product->stock_quantity > 0 ? 'Ready to order' : 'Currently out of stock' }}</strong></div></div>
             <a class="button button-dark jump-to-order" href="#billing">Choose options &amp; order <span>↓</span></a>
         </div>
     </section>
 
     <section class="product-information">
-        <div class="information-copy"><span class="eyebrow">A LITTLE MORE ABOUT IT</span><h2>Your new everyday <em>favorite.</em></h2><p>{{ $product->description }}</p><div class="info-note"><span>Picked with care</span><p>{{ $product->quality_note }} Every piece is checked before it is dispatched.</p></div></div>
-        <div class="information-specs"><h3>Product details</h3><dl><div><dt>Material</dt><dd>{{ $product->material }}</dd></div><div><dt>Color</dt><dd>See product photos for available colors.</dd></div><div><dt>Size</dt><dd>Choose from the available options below.</dd></div><div><dt>Delivery</dt><dd>Delivery across Bangladesh. Check the charge before placing your order.</dd></div><div><dt>Exchanges</dt><dd>Contact us within 7 days to arrange a size exchange.</dd></div></dl></div>
+        <div class="information-copy"><span class="eyebrow">A LITTLE MORE ABOUT IT</span><h2>Made for a <em>sweet moment.</em></h2><p>{{ $product->description }}</p><div class="info-note"><span>Prepared with care</span><p>{{ $product->quality_note }} Your order is packed carefully before dispatch.</p></div></div>
+        <div class="information-specs"><h3>Product details</h3><dl><div><dt>Category</dt><dd>{{ $categoryName }}</dd></div><div><dt>Preparation</dt><dd>{{ $product->material }}</dd></div><div><dt>Portion</dt><dd>Choose from the available sizes or box options below.</dd></div><div><dt>Delivery</dt><dd>Delivery across Bangladesh. Check the charge before placing your order.</dd></div><div><dt>Payment</dt><dd>Pay by cash when your order arrives.</dd></div></dl></div>
     </section>
 
     <section class="billing-section" id="billing">
-        <div class="billing-heading"><span class="eyebrow">A SIMPLE, ONE-PAGE CHECKOUT</span><h2>Make it <em>yours.</em></h2><p>Choose your options, add your delivery details, and see the full total before you order.</p></div>
+        <div class="billing-heading"><span class="eyebrow">A SIMPLE, ONE-PAGE CHECKOUT</span><h2>Send something <em>sweet.</em></h2><p>Choose a size or box, add your delivery details, and see the full total before you order.</p></div>
         <div class="billing-layout">
             <form class="order-form" method="POST" action="{{ route('products.orders.store', $product) }}" id="order-form">
                 @csrf
@@ -78,7 +78,7 @@
                         @endforeach
                     </select>
                     @error('product_variant_id')<span class="field-error">{{ $message }}</span>@enderror
-                    <p class="stock-hint" id="stock-hint">Choose an option to check availability.</p>
+                    <p class="stock-hint" id="stock-hint">Choose a size or box to check availability.</p>
                     <label for="quantity">Quantity</label>
                     <div class="quantity-input"><button type="button" data-quantity-step="-1" aria-label="Decrease quantity">-</button><input id="quantity" name="quantity" type="number" min="1" max="20" value="{{ old('quantity', 1) }}" required><button type="button" data-quantity-step="1" aria-label="Increase quantity">+</button></div>
                     @error('quantity')<span class="field-error">{{ $message }}</span>@enderror

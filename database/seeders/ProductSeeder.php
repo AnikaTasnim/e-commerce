@@ -10,53 +10,50 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         $catalog = [
-            ['linen-shirt', 'Everyday Linen Shirt', 'MEN', 1890, 1490, 'Sand / Olive / White', 'Linen blend', 'Breathable, pre-washed fabric with a relaxed everyday fit.', 'Easy, breathable linen-blend comfort for long days and slow weekends.', 'photo-1598033129183-c4f50c736f10', 'photo-1576566588028-4147f3842f27', ['S', 'M', 'L', 'XL']],
-            ['studio-kurti', 'Studio Cotton Kurti', 'WOMEN', 2190, 1790, 'Indigo / Ivory', 'Soft cotton', 'Soft hand-feel cotton with a clean, comfortable silhouette.', 'A modern everyday essential that moves easily from workdays to weekends.', 'photo-1585487000160-6ebcfceb0d03', 'photo-1610030469983-98e550d6193c', ['S', 'M', 'L', 'XL']],
-            ['weekend-polo', 'Weekend Knit Polo', 'MEN', 1590, 1290, 'Navy / Cream', 'Cotton knit', 'A soft textured knit with a polished collar and easy fit.', 'A comfortable, considered polo for everyday plans.', 'photo-1625910513413-5fc45e3c5e5a', 'photo-1627225924765-552d49cf47ad', ['M', 'L', 'XL', 'XXL']],
-            ['soft-weave-scarf', 'Soft Weave Scarf', 'ACCESSORIES', 990, 790, 'Terracotta / Sand', 'Lightweight weave', 'Lightweight woven fabric designed for year-round layering.', 'An effortless finishing touch, season after season.', 'photo-1601924994987-69e26d50dc26', 'photo-1520903920243-00d872a2d1c9', ['One size']],
-            ['city-tote', 'Daily Carry Tote', 'ACCESSORIES', 1390, 1090, 'Natural / Black', 'Cotton canvas', 'Durable canvas, sturdy handles, and a practical everyday shape.', 'Room for the everyday, with a clean profile and sturdy handles.', 'photo-1590874103328-eac38a683ce7', 'photo-1548036328-c9fa89d128fa', ['One size']],
-            ['relaxed-trouser', 'Relaxed Tailored Trouser', 'WOMEN', 1990, 1590, 'Stone / Black', 'Viscose blend', 'Soft drape with a comfortable high rise and a tailored finish.', 'An easy match for your favorite tops, from desk to dinner.', 'photo-1506629905607-d9c297d8f0c8', 'photo-1594633312681-425c7b97ccd1', ['S', 'M', 'L', 'XL']],
+            ['black-forest-cake', 'Black Forest Cake', 'CAKES', 'black-forest.jpeg', 1250, 'Chocolate sponge layered with cream and cherry, finished with chocolate shavings.', 'A celebration classic with rich chocolate, whipped cream, and cherry.', '0.5 kg', '1 kg', '2 kg'],
+            ['blueberry-cheesecake', 'Blueberry Cheesecake', 'CAKES', 'blueberry-cheesecake.png', 1450, 'Creamy baked cheesecake with a buttery biscuit base and blueberry topping.', 'Silky cheesecake, bright blueberries, and a crisp biscuit base.', '6 inch', '8 inch', '10 inch'],
+            ['classic-cheesecake', 'Classic Cheesecake', 'CAKES', 'cheese-cake.jpg', 1350, 'Smooth, creamy cheesecake on a golden crumb crust. Simple, rich, and made for sharing.', 'A creamy New York style favorite on a buttery crumb crust.', '6 inch', '8 inch', '10 inch'],
+            ['chocolate-brownie-box', 'Chocolate Brownie Box', 'DESSERTS', 'chocolate-brownie.jpg', 450, 'Fudgy chocolate brownies with a delicate crackly top, baked in small batches.', 'Deep chocolate brownies with soft, fudgy centers.', '4 pieces', '8 pieces', '12 pieces'],
+            ['chocolate-cake', 'Chocolate Fudge Cake', 'CAKES', 'Chocolate-Cake.jpg', 1150, 'Moist cocoa sponge covered with smooth chocolate frosting for a crowd-pleasing treat.', 'Moist chocolate layers wrapped in silky chocolate frosting.', '0.5 kg', '1 kg', '2 kg'],
+            ['chocolate-cheesecake', 'Chocolate Cheesecake', 'CAKES', 'chocolate-cheese-cake.jpg', 1550, 'Rich chocolate cheesecake over a crunchy base, finished with a glossy chocolate layer.', 'A rich chocolate twist on creamy cheesecake.', '6 inch', '8 inch', '10 inch'],
+            ['dark-chocolate-cake', 'Dark Chocolate Cake', 'CAKES', 'dark-chocolate-cake.jpg', 1290, 'Dark cocoa sponge and smooth ganache make this an indulgent choice for chocolate lovers.', 'Bold dark chocolate sponge finished with silky ganache.', '0.5 kg', '1 kg', '2 kg'],
+            ['classic-donut-box', 'Classic Donut Box', 'DESSERTS', 'dounuts.jpg', 360, 'Soft, golden donuts with a light glaze, freshly prepared for sharing.', 'A fresh box of soft, golden, glazed donuts.', '4 pieces', '6 pieces', '12 pieces'],
+            ['gluten-free-donuts', 'Gluten-Free Donut Box', 'DESSERTS', 'Gluten-Free-Donut.png', 480, 'A tender gluten-free donut treat, prepared separately and packed fresh.', 'A soft, sweet gluten-free option for your treat time.', '4 pieces', '6 pieces', '12 pieces'],
+            ['vanilla-cake', 'Vanilla Celebration Cake', 'CAKES', 'vanilla-cake.jpg', 990, 'Soft vanilla sponge with a light cream finish, ready for birthdays and everyday celebrations.', 'A light, tender vanilla cake made for sharing.', '0.5 kg', '1 kg', '2 kg'],
         ];
 
-        $banglaNames = [
-            'linen-shirt' => 'প্রতিদিনের লিনেন শার্ট',
-            'studio-kurti' => 'স্টুডিও কটন কুর্তি',
-            'weekend-polo' => 'উইকএন্ড নিট পোলো',
-            'soft-weave-scarf' => 'নরম বুননের স্কার্ফ',
-            'city-tote' => 'প্রতিদিনের টোট ব্যাগ',
-            'relaxed-trouser' => 'আরামদায়ক টেইলর্ড ট্রাউজার',
-        ];
-
-        foreach ($catalog as $index => [$slug, $name, $category, $regular, $discount, $colors, $material, $quality, $short, $photo, $detailPhoto, $sizes]) {
-            $imageUrl = "https://images.unsplash.com/{$photo}?auto=format&fit=crop&w=1200&q=85";
+        foreach ($catalog as $index => [$slug, $name, $category, $file, $price, $description, $short, $small, $medium, $large]) {
+            $imagePath = '/images/products/'.$file;
             $product = Product::firstOrCreate(['slug' => $slug], [
                 'name' => $name,
-                'bangla_name' => $banglaNames[$slug] ?? null,
                 'sku' => strtoupper(str_replace('-', '', $slug)),
                 'category' => $category,
-                'description' => "{$short} Available in {$colors}. Choose your preferred size and place your order on this page. Easy exchange support and cash on delivery across Bangladesh.",
+                'description' => $description.' Made fresh to order and delivered across Bangladesh. Choose a size or box and place your order here.',
                 'short_description' => $short,
-                'regular_price' => $regular,
-                'discount_price' => $discount,
-                'stock_quantity' => count($sizes) * 12,
+                'regular_price' => $price + 200,
+                'discount_price' => $price,
+                'stock_quantity' => 36,
                 'status' => 'active',
-                'featured' => $index < 3,
-                'main_image' => $imageUrl,
-                'material' => $material,
-                'quality_note' => $quality,
+                'featured' => $index < 4,
+                'main_image' => $imagePath,
+                'material' => $category === 'CAKES' ? 'Freshly baked cake' : 'Freshly baked dessert',
+                'quality_note' => 'Prepared fresh and packed with care.',
+                'features' => ['Freshly prepared', 'Carefully packed', 'Cash on delivery available'],
             ]);
 
-            $product->images()->updateOrCreate(['image_path' => $imageUrl], ['alt_text' => $name, 'is_primary' => true, 'sort_order' => 0]);
-            $product->images()->firstOrCreate(
-                ['image_path' => "https://images.unsplash.com/{$detailPhoto}?auto=format&fit=crop&w=900&q=80"],
-                ['alt_text' => "{$name} detail", 'is_primary' => false, 'sort_order' => 1],
-            );
+            $product->images()->updateOrCreate(['image_path' => $imagePath], [
+                'alt_text' => $name,
+                'is_primary' => true,
+                'sort_order' => 0,
+            ]);
 
+            $sizes = [$small, $medium, $large];
             foreach ($sizes as $order => $size) {
+                $adjustment = [0, 700, 1700][$order];
                 $product->variants()->firstOrCreate(['name' => 'Size', 'value' => $size], [
                     'sku' => strtoupper(str_replace('-', '', $slug)).'-'.str_replace(' ', '', strtoupper($size)),
                     'stock_quantity' => 12,
-                    'price_adjustment' => $size === 'XXL' ? 100 : 0,
+                    'price_adjustment' => $adjustment,
                     'is_active' => true,
                     'sort_order' => $order,
                 ]);
