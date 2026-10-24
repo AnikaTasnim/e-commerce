@@ -194,7 +194,7 @@
     }
 
     const stockHint = document.querySelector('#stock-hint');
-    if (stockHint) stockHint.textContent = selected?.value ? `${number(available)} in stock` : 'Choose an option to check availability.';
+    if (stockHint) stockHint.textContent = selected?.value ? `${number(available)} in stock` : 'Select a size to check availability.';
     const button = document.querySelector('.place-order-button');
     if (button) button.disabled = !selected?.value || available < 1;
   }

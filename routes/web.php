@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'index'])->name('storefront.home');
+Route::get('/menu', [ProductController::class, 'menu'])->name('storefront.menu');
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 Route::post('/products/{product}/orders', [OrderController::class, 'store'])->middleware('throttle:10,1')->name('products.orders.store');
 

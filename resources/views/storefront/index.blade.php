@@ -1,6 +1,6 @@
 @extends('layouts.storefront')
 
-@section('title', 'SweetCrust | Cakes, cheesecakes & fresh desserts')
+@section('title', ($menuPage ?? false) ? 'SweetCrust | Cakes & desserts menu' : 'SweetCrust | Cakes, cheesecakes & fresh desserts')
 
 @section('content')
 <main id="top">
@@ -10,6 +10,7 @@
             <h1>Make today<br><em>a little sweeter.</em></h1>
             <p>Celebration cakes, creamy cheesecakes, brownies and donuts, freshly prepared and delivered with care.</p>
             <a class="button button-dark" href="#shop">Explore cakes &amp; desserts <span>&#8599;</span></a>
+            @unless ($menuPage)<a class="button hero-menu-button" href="{{ route('storefront.menu') }}">View Menu <span>&#8599;</span></a>@endunless
             <div class="hero-proof"><span class="proof-stars">&#10003;</span><span>Freshly made &middot; Cash on delivery</span></div>
         </div>
         <div class="hero-visual" id="hero-slider" role="region" aria-roledescription="carousel" aria-label="SweetCrust bakery highlights">
@@ -33,6 +34,12 @@
         </div>
         <div class="hero-side-note">A little sweetness, made fresh</div>
     </section>
+
+    @unless ($menuPage)
+        @include('storefront.partials.home-blueberry')
+    @endunless
+
+    <?php if($menuPage){ ?>
 
     <section class="promise-strip" id="delivery" aria-label="Bakery shopping benefits">
         <div><span class="promise-icon">&#10022;</span><span><b>Freshly prepared</b><small>Baked and packed with care</small></span></div>
@@ -109,4 +116,6 @@
 
     <section class="newsletter"><div><span class="eyebrow">A LITTLE SWEETNESS FOR YOUR DAY</span><h2>There is always room for dessert.</h2><p>Browse our cakes and treats and choose something to share.</p></div><a class="button button-dark" href="#shop">Shop cakes &amp; desserts <span>&#8599;</span></a></section>
 </main>
+   <?php } ?>
+
 @endsection

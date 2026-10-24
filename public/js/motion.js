@@ -11,6 +11,7 @@
     '.admin-heading', '.admin-card', '.metric-card', '.dashboard-shortcuts > a',
     '.admin-login-card', '.report-summary > *', '.report-table-card',
     '.admin-order-detail-grid > *', '.shipping-admin-row', '.shipping-add-form',
+    '.home-featured-heading', '.home-product-details', '.home-checkout-panel',
   ].join(',');
 
   const targets = [...document.querySelectorAll(revealTargets)];

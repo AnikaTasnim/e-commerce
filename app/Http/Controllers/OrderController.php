@@ -29,6 +29,7 @@ class OrderController extends Controller
             'quantity' => ['required', 'integer', 'min:1', 'max:20'],
             'shipping_option_id' => ['required', 'integer', 'exists:shipping_options,id'],
             'payment_method' => ['required', 'in:cod'],
+            'return_to' => ['nullable', 'in:home'],
         ], [
             'customer_name.required' => 'আপনার নাম লিখুন।',
             'customer_name.string' => 'নামটি সঠিকভাবে লিখুন।',
@@ -139,9 +140,11 @@ class OrderController extends Controller
             return $order;
         }, attempts: 3);
 
-        return redirect()
-            ->route('products.show', $product)
-            ->with('order_confirmation', [
+        $redirect = ($data['return_to'] ?? null) === 'home'
+            ? redirect()->to(route('storefront.home').'#blueberry-order')
+            : redirect()->route('products.show', $product);
+
+        return $redirect->with('order_confirmation', [
                 'order_number' => $order->order_number,
                 'customer_name' => $order->customer_name,
                 'phone' => $order->phone,

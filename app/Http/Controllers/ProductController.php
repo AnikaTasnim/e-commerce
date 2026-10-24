@@ -20,7 +20,32 @@ class ProductController extends Controller
             ->latest()
             ->get();
 
-        return view('storefront.index', compact('products'));
+        $featuredProduct = Product::query()
+            ->where('slug', 'blueberry-cheesecake')
+            ->where('status', 'active')
+            ->with(['images', 'variants' => fn ($query) => $query->where('is_active', true)])
+            ->first();
+        $shippingOptions = ShippingOption::query()->where('is_active', true)->orderBy('sort_order')->get();
+        $districts = District::query()->where('is_active', true)
+            ->with(['areas' => fn ($query) => $query->where('is_active', true)])
+            ->orderBy('sort_order')->orderBy('name')->get();
+        $confirmation = session('order_confirmation');
+
+        return view('storefront.index', compact('products', 'featuredProduct', 'shippingOptions', 'districts', 'confirmation') + ['menuPage' => false]);
+    }
+
+    public function menu(): View
+    {
+        $products = Product::query()
+            ->where('status', 'active')
+            ->where('stock_quantity', '>', 0)
+            ->whereIn('category', ['CAKES', 'DESSERTS'])
+            ->with('images')
+            ->orderByDesc('featured')
+            ->latest()
+            ->get();
+
+        return view('storefront.index', ['products' => $products, 'menuPage' => true]);
     }
 
     public function show(Product $product): View
