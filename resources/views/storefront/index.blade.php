@@ -45,9 +45,9 @@
         <div class="section-heading"><div><span class="eyebrow">FROM OUR OVEN TO YOUR TABLE</span><h2>Choose your <em>sweet moment.</em></h2><p class="section-intro">Find a celebration cake or a little treat to share. Choose a size and place your order in a few easy steps.</p></div></div>
         <div class="shop-tools">
             <div class="filter-list" role="group" aria-label="Filter products">
-                <button class="filter-chip active" data-category="ALL">Everything sweet <span>{{ $products->count() }}</span></button>
-                <button class="filter-chip" data-category="CAKES">Cakes</button>
-                <button class="filter-chip" data-category="DESSERTS">Desserts</button>
+                <button class="filter-chip active" type="button" data-category="ALL" aria-pressed="true">Everything sweet <span>{{ $products->count() }}</span></button>
+                <button class="filter-chip" type="button" data-category="CAKES" aria-pressed="false">Cakes</button>
+                <button class="filter-chip" type="button" data-category="DESSERTS" aria-pressed="false">Desserts</button>
             </div>
             <label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.4 4.4"/></svg><input id="product-search" type="search" placeholder="Find a sweet favorite..." aria-label="Search cakes and desserts"></label>
         </div>

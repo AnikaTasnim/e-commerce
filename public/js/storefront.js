@@ -3,26 +3,51 @@
   const money = (amount) => `৳${number(amount)}`;
 
   const search = document.querySelector('#product-search');
-  if (search) {
-    let category = 'ALL';
-    const applyFilters = () => {
-      const term = search.value.trim().toLowerCase();
+  const filterChips = [...document.querySelectorAll('.filter-chip')];
+  const productCards = [...document.querySelectorAll('.product-card')];
+  if (filterChips.length && productCards.length) {
+    let category = document.querySelector('.filter-chip.active')?.dataset.category || 'ALL';
+    const applyFilters = (animate = false) => {
+      const term = (search?.value || '').trim().toLocaleLowerCase();
       let visible = 0;
-      document.querySelectorAll('.product-card').forEach((card) => {
-        const matches = (category === 'ALL' || card.dataset.category === category)
-          && card.dataset.name.includes(term);
+      productCards.forEach((card) => {
+        const matchesCategory = category === 'ALL'
+          || (card.dataset.category || '').toUpperCase() === category;
+        const matchesSearch = (card.dataset.name || card.textContent).toLocaleLowerCase().includes(term);
+        const matches = matchesCategory && matchesSearch;
+        const wasHidden = card.hidden;
         card.hidden = !matches;
-        if (matches) visible++;
+        if (matches) {
+          visible++;
+          if (animate && wasHidden) {
+            card.classList.remove('filter-enter');
+            void card.offsetWidth;
+            card.classList.add('filter-enter');
+          }
+        } else {
+          card.classList.remove('filter-enter');
+        }
       });
+
       const empty = document.querySelector('.no-results');
       if (empty) empty.hidden = visible > 0;
     };
-    document.querySelectorAll('.filter-chip').forEach((chip) => chip.addEventListener('click', () => {
-      category = chip.dataset.category;
-      document.querySelectorAll('.filter-chip').forEach((item) => item.classList.toggle('active', item === chip));
-      applyFilters();
-    }));
-    search.addEventListener('input', applyFilters);
+
+    filterChips.forEach((chip) => {
+      chip.setAttribute('aria-pressed', String(chip.dataset.category === category));
+      chip.addEventListener('click', () => {
+        category = chip.dataset.category || 'ALL';
+        filterChips.forEach((item) => {
+          const selected = item === chip;
+          item.classList.toggle('active', selected);
+          item.setAttribute('aria-pressed', String(selected));
+        });
+        applyFilters(true);
+      });
+    });
+
+    search?.addEventListener('input', () => applyFilters(true));
+    applyFilters();
   }
 
   const heroSlider = document.querySelector('#hero-slider');

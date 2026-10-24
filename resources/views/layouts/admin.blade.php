@@ -6,8 +6,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#f4f7fb">
     <title>@yield('title', 'SweetCrust Admin Dashboard')</title>
-    <link rel="icon" type="image/png" href="{{ asset('images/deshicart-icon.png') }}?v=2">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('images/sweetcrust-icon.svg') }}?v=1">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/motion.css') }}">
     @stack('styles')
 </head>
 <body class="admin-body @guest admin-auth-page @endguest">
@@ -39,6 +40,7 @@
 const menuButton=document.getElementById('admin-menu-toggle');
 if(menuButton){menuButton.addEventListener('click',()=>{document.body.classList.toggle('admin-sidebar-open');menuButton.setAttribute('aria-expanded',document.body.classList.contains('admin-sidebar-open')?'true':'false')})}
 </script>
+<script src="{{ asset('js/motion.js') }}" defer></script>
 @stack('scripts')
 </body>
 </html>

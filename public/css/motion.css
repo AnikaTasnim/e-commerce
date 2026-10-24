@@ -1,0 +1,81 @@
+/* Shared motion layer for the storefront and store admin. */
+.motion-ready .motion-reveal {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+    transition: opacity 650ms cubic-bezier(.2,.7,.2,1), transform 650ms cubic-bezier(.2,.7,.2,1);
+    transition-delay: calc(var(--motion-order, 0) * 75ms);
+    will-change: opacity, transform;
+}
+
+.motion-ready .motion-reveal.motion-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    will-change: auto;
+}
+
+.motion-ready .hero-copy > * {
+    animation: bakery-rise 700ms cubic-bezier(.2,.7,.2,1) both;
+}
+
+.motion-ready .hero-copy > :nth-child(2) { animation-delay: 90ms; }
+.motion-ready .hero-copy > :nth-child(3) { animation-delay: 170ms; }
+.motion-ready .hero-copy > :nth-child(4) { animation-delay: 250ms; }
+.motion-ready .hero-copy > :nth-child(5) { animation-delay: 330ms; }
+
+@keyframes bakery-rise {
+    from { opacity: 0; transform: translate3d(0, 18px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+.product-card .product-image-wrap,
+.why-card,
+.testimonial-card,
+.dashboard-shortcuts > a,
+.admin-product-table tbody tr {
+    transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+}
+
+.product-card .product-image-wrap img,
+.story-image img,
+.product-main-image img,
+.visit-directions span {
+    transition: transform 500ms cubic-bezier(.2,.7,.2,1);
+}
+
+.product-card:hover .product-image-wrap img,
+.story-image:hover img,
+.product-main-image:hover img {
+    transform: scale(1.045);
+}
+
+.product-card:hover .product-image-wrap,
+.why-card:hover,
+.testimonial-card:hover,
+.dashboard-shortcuts > a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 34px rgba(44, 35, 27, .1);
+}
+
+.admin-product-table tbody tr:hover { transform: translateX(3px); }
+.button:active, .filter-chip:active, .hero-slider-controls button:active { transform: scale(.97); }
+.visit-directions:hover span { transform: translate(3px, -3px); }
+
+.product-card[hidden] { display: none !important; }
+.product-card.filter-enter { animation: product-filter-enter 360ms cubic-bezier(.2,.7,.2,1) both; }
+.filter-chip { transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, transform 180ms ease; }
+.filter-chip[aria-pressed="true"] { box-shadow: 0 5px 14px rgba(73, 110, 29, .2); }
+
+@keyframes product-filter-enter {
+    from { opacity: 0; transform: translate3d(0, 12px, 0) scale(.985); }
+    to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+    .motion-ready .motion-reveal { opacity: 1; transform: none; }
+}
