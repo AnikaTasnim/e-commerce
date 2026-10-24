@@ -9,13 +9,15 @@
             <span class="eyebrow"><i></i> BAKED FRESH FOR YOUR MOMENTS</span>
             <h1>Make today<br><em>a little sweeter.</em></h1>
             <p>Celebration cakes, creamy cheesecakes, brownies and donuts, freshly prepared and delivered with care.</p>
-            <a class="button button-dark" href="#shop">Explore cakes &amp; desserts <span>&#8599;</span></a>
-            @unless ($menuPage)<a class="button hero-menu-button" href="{{ route('storefront.menu') }}">View Menu <span>&#8599;</span></a>@endunless
+            <!-- <a class="button button-dark" href="#shop">Explore cakes &amp; desserts <span>&#8599;</span></a> -->
+            @unless ($menuPage)<a class="button button-dark" href="{{ route('storefront.menu') }}">View Menu <span>&#8599;</span></a>@endunless
             <div class="hero-proof"><span class="proof-stars">&#10003;</span><span>Freshly made &middot; Cash on delivery</span></div>
         </div>
         <div class="hero-visual" id="hero-slider" role="region" aria-roledescription="carousel" aria-label="SweetCrust bakery highlights">
-            <div class="hero-slide is-active" data-slide="0" data-slide-label="SweetCrust bakery video" role="group" aria-roledescription="slide" aria-hidden="false">
-                <video class="hero-media" autoplay muted loop playsinline preload="metadata" poster="{{ asset('images/products/Chocolate-Cake.jpg') }}" aria-label="SweetCrust featured video">
+           
+            <?php if($menuPage){ ?>
+             <div class="hero-slide is-active" data-slide="0" data-slide-label="SweetCrust bakery video" role="group" aria-roledescription="slide" aria-hidden="false">
+                <video class="hero-media" autoplay muted loop playsinline preload="metadata"  aria-label="SweetCrust featured video">
                     <source src="{{ asset('videos/sweetcrust-slider.mp4') }}" type="video/mp4">
                 </video>
                 <div class="hero-caption"><span>FRESHLY BAKED FOR YOUR MOMENTS</span><span>01 / 02</span></div>
@@ -24,13 +26,23 @@
                 <img class="hero-media" src="{{ asset('images/products/Chocolate-Cake.jpg') }}" alt="Fresh chocolate celebration cake" loading="lazy">
                 <div class="hero-caption"><span>MADE FOR YOUR CELEBRATIONS</span><span>02 / 02</span></div>
             </div>
-            <div class="hero-sticker"><span>BAKED WITH CARE</span><strong>Fresh daily</strong><span>For every sweet moment</span></div>
+             <div class="hero-sticker"><span>BAKED WITH CARE</span><strong>Fresh daily</strong><span>For every sweet moment</span></div>
             <div class="hero-slider-controls" aria-label="Featured slide controls">
                 <button type="button" data-slider-prev aria-label="Previous slide">&#8592;</button>
                 <div class="hero-slider-dots"><button type="button" data-slider-to="0" aria-label="Show bakery video" aria-pressed="true"></button><button type="button" data-slider-to="1" aria-label="Show cake" aria-pressed="false"></button></div>
                 <button type="button" data-slider-next aria-label="Next slide">&#8594;</button>
                 <span class="sr-only" id="hero-slide-status" aria-live="polite">Slide 1 of 2: SweetCrust bakery video</span>
             </div>
+            <?php }else{ ?>
+            <div class="hero-slide is-active" data-slide="0" data-slide-label="SweetCrust bakery video" role="group" aria-roledescription="slide" aria-hidden="false">
+                <video class="hero-media" autoplay muted loop playsinline preload="metadata"  aria-label="SweetCrust featured video">
+                    <source src="{{ asset('videos/sweetcrust-slider.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+             <div class="hero-sticker"><span>BAKED WITH CARE</span><strong>Fresh daily</strong><span>For every sweet moment</span></div>
+            
+           <?php } ?>
+           
         </div>
         <div class="hero-side-note">A little sweetness, made fresh</div>
     </section>
