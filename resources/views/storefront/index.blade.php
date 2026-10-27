@@ -28,7 +28,7 @@
                 <p>Celebration cakes, creamy cheesecakes, brownies and donuts, freshly prepared and delivered with care.</p>
             @endunless
             <!-- <a class="button button-dark" href="#shop">Explore cakes &amp; desserts <span>&#8599;</span></a> -->
-            @unless ($menuPage)<a class="button button-dark" href="{{ route('storefront.menu') }}">View Menu <span>&#8599;</span></a>@endunless
+            @unless ($menuPage)<a class="button button-dark" href="#blueberry-order">Order the featured cake <span>&#8599;</span></a>@endunless
             <div class="hero-proof"><span class="proof-stars">&#10003;</span><span>Freshly made &middot; Cash on delivery</span></div>
         </div>
         <div class="hero-visual" id="hero-slider" role="region" aria-roledescription="carousel" aria-label="SweetCrust bakery highlights">

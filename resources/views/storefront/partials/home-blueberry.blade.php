@@ -14,7 +14,7 @@
                     <span class="eyebrow">ORDER RECEIVED</span>
                     <h2 id="order-success-title">Thank you, {{ $confirmation['customer_name'] }}.</h2>
                     <p>Your order number is <strong>{{ $confirmation['order_number'] }}</strong>. We’ll call {{ $confirmation['phone'] }} to confirm delivery. Pay when it arrives: <strong>&#2547;{{ number_format($confirmation['total']) }}</strong>.</p>
-                    <a class="text-link" href="{{ route('storefront.home') }}#shop">Browse more cakes &amp; desserts <span>&#8599;</span></a>
+                    <!-- <a class="text-link" href="{{ route('storefront.home') }}#shop">Browse more cakes &amp; desserts <span>&#8599;</span></a> -->
                 </div>
             </section>
         </dialog>

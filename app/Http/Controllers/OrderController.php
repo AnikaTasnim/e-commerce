@@ -127,7 +127,7 @@ class OrderController extends Controller
             $order->items()->create([
                 'product_id' => $lockedProduct->id,
                 'product_variant_id' => $variant->id,
-                'product_name' => $lockedProduct->name,
+                'product_name' => $lockedProduct->bangla_name ?: $lockedProduct->name,
                 'variant_snapshot' => ['name' => $variant->name, 'value' => $variant->value],
                 'quantity' => $quantity,
                 'unit_price' => $unitPrice,
@@ -141,7 +141,7 @@ class OrderController extends Controller
         }, attempts: 3);
 
         $redirect = ($data['return_to'] ?? null) === 'home'
-            ? redirect()->to(route('storefront.home').'#blueberry-order')
+            ? redirect()->to(route('storefront.home').'#order')
             : redirect()->route('products.show', $product);
 
         return $redirect->with('order_confirmation', [

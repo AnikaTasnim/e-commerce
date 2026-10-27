@@ -5,23 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\District;
 use App\Models\ShippingOption;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class ProductController extends Controller
 {
     public function index(): View
     {
-        $products = Product::query()
-            ->where('status', 'active')
-            ->where('stock_quantity', '>', 0)
-            ->whereIn('category', ['CAKES', 'DESSERTS'])
-            ->with('images')
-            ->orderByDesc('featured')
-            ->latest()
-            ->get();
-
         $featuredProduct = Product::query()
-            ->where('slug', 'blueberry-cheesecake')
+            ->where('slug', 'pabna-para-sandesh')
             ->where('status', 'active')
             ->with(['images', 'variants' => fn ($query) => $query->where('is_active', true)])
             ->first();
@@ -31,21 +23,12 @@ class ProductController extends Controller
             ->orderBy('sort_order')->orderBy('name')->get();
         $confirmation = session('order_confirmation');
 
-        return view('storefront.index', compact('products', 'featuredProduct', 'shippingOptions', 'districts', 'confirmation') + ['menuPage' => false]);
+        return view('storefront.para-sandesh-home', compact('featuredProduct', 'shippingOptions', 'districts', 'confirmation'));
     }
 
-    public function menu(): View
+    public function menu(): RedirectResponse
     {
-        $products = Product::query()
-            ->where('status', 'active')
-            ->where('stock_quantity', '>', 0)
-            ->whereIn('category', ['CAKES', 'DESSERTS'])
-            ->with('images')
-            ->orderByDesc('featured')
-            ->latest()
-            ->get();
-
-        return view('storefront.index', ['products' => $products, 'menuPage' => true]);
+        return redirect()->route('storefront.home');
     }
 
     public function show(Product $product): View

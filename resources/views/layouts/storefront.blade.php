@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/order-flow.css') }}">
     <link rel="stylesheet" href="{{ asset('css/motion.css') }}?v=3">
     <link rel="stylesheet" href="{{ asset('css/home-featured-product.css') }}?v=18">
+    <link rel="stylesheet" href="{{ asset('css/conversion-design.css') }}?v=1">
     @stack('styles')
 </head>
 <body>

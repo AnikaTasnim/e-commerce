@@ -1,6 +1,7 @@
 (() => {
   const number = (amount) => Math.round(Number(amount)).toLocaleString('en-BD');
   const money = (amount) => `৳${number(amount)}`;
+  const isBanglaPage = document.documentElement.lang === 'bn';
 
   const search = document.querySelector('#product-search');
   const filterChips = [...document.querySelectorAll('.filter-chip')];
@@ -74,13 +75,15 @@
         }
       });
       dots.forEach((dot, dotIndex) => dot.setAttribute('aria-pressed', String(dotIndex === activeSlide)));
-      if (status) status.textContent = `Slide ${activeSlide + 1} of ${slides.length}: ${slides[activeSlide].dataset.slideLabel}`;
+      if (status) status.textContent = isBanglaPage
+        ? `স্লাইড ${activeSlide + 1}: ${slides[activeSlide].dataset.slideLabel}`
+        : `Slide ${activeSlide + 1} of ${slides.length}: ${slides[activeSlide].dataset.slideLabel}`;
     };
 
     const stopTimer = () => window.clearInterval(timer);
     const startTimer = () => {
       stopTimer();
-      if (!paused && !reducedMotion.matches && slides.length > 1) {
+      if (!paused && !reducedMotion.matches && slides.length > 1 && !slides[activeSlide]?.querySelector('video')) {
         timer = window.setInterval(() => showSlide(activeSlide + 1), 10000);
       }
     };
@@ -88,6 +91,10 @@
     heroSlider.querySelector('[data-slider-prev]')?.addEventListener('click', () => { showSlide(activeSlide - 1); startTimer(); });
     heroSlider.querySelector('[data-slider-next]')?.addEventListener('click', () => { showSlide(activeSlide + 1); startTimer(); });
     dots.forEach((dot) => dot.addEventListener('click', () => { showSlide(Number(dot.dataset.sliderTo)); startTimer(); }));
+    slides.forEach((slide, index) => slide.querySelector('video')?.addEventListener('ended', () => {
+      showSlide(index + 1);
+      startTimer();
+    }));
     heroSlider.addEventListener('mouseenter', () => { paused = true; stopTimer(); });
     heroSlider.addEventListener('mouseleave', () => { paused = false; startTimer(); });
     heroSlider.addEventListener('focusin', () => { paused = true; stopTimer(); });
@@ -171,8 +178,8 @@
       if (element) element.textContent = value;
     };
     setText('#product-current-price', money(unit));
-    setText('#summary-variant', selected?.value ? selected.textContent.trim() : 'Choose a size or option');
-    setText('#summary-quantity', `Quantity: ${number(count)}`);
+    setText('#summary-variant', selected?.value ? selected.textContent.trim() : (isBanglaPage ? 'প্যাকেটের ওজন বেছে নিন' : 'Choose a size or option'));
+    setText('#summary-quantity', isBanglaPage ? `পরিমাণ: ${number(count)}` : `Quantity: ${number(count)}`);
     setText('#summary-subtotal', money(subtotal));
     setText('#summary-subtotal-line', money(subtotal));
     setText('#summary-shipping', money(shipping));
@@ -180,7 +187,7 @@
     setText('#place-order-total', money(total));
 
     const shippingName = shippingInput?.closest('.shipping-option')?.querySelector('.shipping-choice strong')?.textContent;
-    setText('#summary-shipping-name', shippingName || 'Delivery');
+    setText('#summary-shipping-name', shippingName || (isBanglaPage ? 'ডেলিভারি চার্জ' : 'Delivery'));
     const discountLine = document.querySelector('#summary-discount')?.closest('.summary-row');
     if (discountLine) {
       discountLine.hidden = savings <= 0;
@@ -194,7 +201,9 @@
     }
 
     const stockHint = document.querySelector('#stock-hint');
-    if (stockHint) stockHint.textContent = selected?.value ? `${number(available)} in stock` : 'Select a size to check availability.';
+    if (stockHint) stockHint.textContent = selected?.value
+      ? (isBanglaPage ? `${number(available)} প্যাকেট মজুত` : `${number(available)} in stock`)
+      : (isBanglaPage ? 'প্যাকেটের ওজন বেছে নিন।' : 'Select a size to check availability.');
     const button = document.querySelector('.place-order-button');
     if (button) button.disabled = !selected?.value || available < 1;
   }

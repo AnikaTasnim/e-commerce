@@ -59,5 +59,43 @@ class ProductSeeder extends Seeder
                 ]);
             }
         }
+
+        $sandeshImage = '/images/para-sandesh.svg';
+        $sandesh = Product::firstOrCreate(['slug' => 'pabna-para-sandesh'], [
+            'name' => 'Pabna Para Sandesh',
+            'bangla_name' => 'পাবনার প্যারা সন্দেশ',
+            'sku' => 'PABNA-PARA-SANDESH',
+            'category' => 'DESSERTS',
+            'description' => 'পাবনার ঐতিহ্যবাহী প্যারা সন্দেশ। সর্বোচ্চ মানের দুধ ও সামান্য চিনি দিয়ে তৈরি; কোনো রং বা কেমিক্যাল মেশানো হয় না।',
+            'short_description' => 'খাঁটি দুধে তৈরি পাবনার ঐতিহ্যবাহী প্যারা সন্দেশ।',
+            'regular_price' => 700,
+            'discount_price' => 620,
+            'stock_quantity' => 120,
+            'status' => 'active',
+            'featured' => true,
+            'main_image' => $sandeshImage,
+            'material' => 'খাঁটি দুধ ও সামান্য চিনি',
+            'quality_note' => 'কোনো রং বা কেমিক্যাল ছাড়া তৈরি',
+            'features' => [
+                'সর্বোচ্চ মানের দুধ দিয়ে তৈরি',
+                'কোনো রং বা কেমিক্যাল মেশানো হয় না',
+                'প্যাকেটের ওজন বাদ দিয়ে শুধু সন্দেশ ওজন করা হয়',
+                'ডেলিভারির সময় রাইডারের সামনে পণ্য দেখে নিতে পারবেন',
+            ],
+        ]);
+
+        $sandesh->images()->updateOrCreate(['image_path' => $sandeshImage], [
+            'alt_text' => 'পাবনার প্যারা সন্দেশ',
+            'is_primary' => true,
+            'sort_order' => 0,
+        ]);
+
+        $sandesh->variants()->firstOrCreate(['name' => 'ওজন', 'value' => '১ কেজি'], [
+            'sku' => 'PABNA-PARA-SANDESH-1KG',
+            'stock_quantity' => 120,
+            'price_adjustment' => 0,
+            'is_active' => true,
+            'sort_order' => 0,
+        ]);
     }
 }
