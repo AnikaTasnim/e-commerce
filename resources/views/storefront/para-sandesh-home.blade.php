@@ -48,13 +48,15 @@
     </section>
 
     <section class="vf-story" id="why-us">
-        <div class="vf-story-heading"><span class="vf-kicker">আমাদের কাছ থেকে কেন নেবেন?</span><h2>সরল উপকরণ।<br><em>অসাধারণ স্বাদ।</em></h2><p>প্রতিটি প্যারা সন্দেশ তৈরি হয় যত্ন আর মানের প্রতিশ্রুতি নিয়ে।</p><a class="vf-button vf-button-outline" href="#order">অর্ডার করতে এগিয়ে যান <span aria-hidden="true">↓</span></a></div>
+        <figure class="vf-story-photo"><img src="https://villagefoodzone.com/wp-content/uploads/2025/05/Sondesh-02-947x1024-1.jpg" alt="পাবনার প্যারা সন্দেশ" loading="lazy"></figure>
         <div class="vf-benefits">
-            <article><span class="vf-benefit-number">০১</span><div><h3>সর্বোচ্চ মানের দুধ</h3><p>বাছাই করা দুধ দিয়ে আমরা প্রতিদিন প্যারা সন্দেশ তৈরি করি।</p></div></article>
-            <article><span class="vf-benefit-number">০২</span><div><h3>রং ও কেমিক্যালমুক্ত</h3><p>কোনো কৃত্রিম রং বা কেমিক্যাল মেশানো হয় না—শুধু আসল স্বাদ।</p></div></article>
-            <article><span class="vf-benefit-number">০৩</span><div><h3>সঠিক ওজনের নিশ্চয়তা</h3><p>প্যাকেটের ওজন বাদ দিয়ে শুধু সন্দেশের ওজন হিসাব করি।</p></div></article>
-            <article><span class="vf-benefit-number">০৪</span><div><h3>দুধ আর সামান্য চিনি</h3><p>উপাদান সহজ, স্বাদে পূর্ণ—পাবনার ঘরোয়া ঐতিহ্য।</p></div></article>
-            <article><span class="vf-benefit-number">০৫</span><div><h3>আপনার সামনে যাচাই</h3><p>ডেলিভারির সময় রাইডার থাকা অবস্থায় পণ্য দেখে নিতে পারবেন।</p></div></article>
+            <header class="vf-benefits-heading"><span class="vf-kicker">আমাদের কাছ থেকে কেন নেবেন?</span><h2>সরল উপকরণ। <em>অসাধারণ স্বাদ।</em></h2></header>
+            <article><span class="vf-benefit-number">০১</span><div><h3>সেরা মানের দুধ</h3><p>প্রতিদিন বাছাই করা দুধে তৈরি।</p></div></article>
+            <article><span class="vf-benefit-number">০২</span><div><h3>রং ও কেমিক্যালমুক্ত</h3><p>কোনো কৃত্রিম রং বা কেমিক্যাল নেই।</p></div></article>
+            <article><span class="vf-benefit-number">০৩</span><div><h3>সঠিক ওজন</h3><p>প্যাকেট বাদ দিয়ে শুধু সন্দেশের ওজন।</p></div></article>
+            <article><span class="vf-benefit-number">০৪</span><div><h3>মাত্র দুই উপকরণ</h3><p>খাঁটি দুধ আর সামান্য চিনি।</p></div></article>
+            <article><span class="vf-benefit-number">০৫</span><div><h3>ডেলিভারিতে দেখে নিন</h3><p>রাইডার থাকা অবস্থায় পণ্য যাচাই করুন।</p></div></article>
+            <a class="vf-button vf-button-outline vf-benefits-cta" href="#order">অর্ডার করতে এগিয়ে যান <span aria-hidden="true">↓</span></a>
         </div>
     </section>
 

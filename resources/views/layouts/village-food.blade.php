@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/order-flow.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/village-food.css') }}?v=4">
+    <link rel="stylesheet" href="{{ asset('css/village-food.css') }}?v=5">
 </head>
 <body>
     @yield('content')
